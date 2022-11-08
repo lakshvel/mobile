@@ -1,0 +1,36 @@
+<div class="modal_cont_ex">
+
+    <p class="cnt_ext_p">
+        It looks like you have another contact with the same email address:
+    </p>
+    <ion-grid class="p_left p_right">
+        <ion-row text-center class="cnt_ext_img">
+            <ion-col col-12>
+                <img src="assets/imgs/company__defaut-icon@3x.png" class="img_thumb" />
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="cnt_ext_tlt">
+            <ion-col col-12>
+                <ion-title *ngIf="contactDetails.first_name!=null">{{contactDetails.first_name}} {{contactDetails.last_name}}</ion-title>
+                <ion-title *ngIf="contactDetails.first_name==null">{{contactDetails.company_name}}</ion-title>
+            </ion-col>
+        </ion-row>
+        <ion-row class="cnt_ext_btn">
+            <ion-col col-6 text-center (click)="openContact()" class="op_con">
+                <p class="cnt_ext_btn_one">Open contact</p>
+            </ion-col>
+            <ion-col col-6 text-center (click)="createContact()">
+                <p class="cnt_ext_btn_one">Create anyway</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</div>
+<div center middle *ngIf="showLoader" class="ldr_mask">
+    <div class="mask_outer">
+        <div class="mask_inner">
+            <ion-spinner name="crescent" color="dark"></ion-spinner>
+        </div>
+    </div>
+</div>

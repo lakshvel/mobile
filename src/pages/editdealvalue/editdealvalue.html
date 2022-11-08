@@ -1,0 +1,128 @@
+<ion-header hideBackButton="true" class="dl_cat_hd dl_cat_hd_one dl_cat_hd">
+  <p *ngIf="!isTask">{{currencySymbol}} {{convertDealValue(totalDealValue)}}</p>
+  <p *ngIf="isTask">{{date}}</p>
+  <div class="dl_pop_cl_btn" (click)="closeModal();">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22"
+      version="1.1">
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs/>
+      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3819.000000)"
+        opacity="0.25">
+        <g id="Contact-creation" transform="translate(0.000000, 3735.000000)" fill="#000000">
+          <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</ion-header>
+<ion-content class="">
+  <form novalidate [formGroup]="myForm" *ngIf="!isTask">
+    <ng-container formArrayName="dealValues">
+      <!--Slect  category listing Value design start-->
+      <div class="cmn_padd dlp_sel_val_outer top_sp_mrgn_val">
+
+        <div class="dl_sel_val_outer" *ngFor="let dealValue of formData.controls; let i = index" [formGroupName]="i">
+          <!-- <span>{{dealValue.get('product_qty')}} Hiii</span> -->
+          <div class="dlt_img" (click)="removeSelectedFromDealValue(dealValue)">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="15px" viewBox="0 0 11 15"
+              version="1.1">
+              <!-- Generator: sketchtool 49 (51002) - http://www.bohemiancoding.com/sketch -->
+              <title>70E94676-510A-44BA-A810-A9C2733FBD95</title>
+              <desc>Created with sketchtool.</desc>
+              <defs/>
+              <g id="Mobile-screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.300000012">
+                <g id="Assets" transform="translate(-29.000000, -1343.000000)" fill="#000000">
+                  <g id="Create-Deal" transform="translate(0.000000, 823.000000)">
+                    <path d="M29.9220854,534.026435 L29.4927705,524.983013 L38.9377997,524.983013 L38.5084849,534.026435 C38.5084849,534.564117 38.0726023,535 37.5349197,535 L30.8956505,535 C30.357968,535 29.9220854,534.564117 29.9220854,534.026435 Z M31.9622929,526.197943 L31.1942263,526.197943 L31.4518049,533.682193 L32.2198716,533.682193 L31.9622929,526.197943 Z M33.8214258,533.682193 L34.5894925,533.682193 L34.5894925,526.197943 L33.8214258,526.197943 L33.8214258,533.682193 Z M36.4486767,526.197943 L36.191098,533.682193 L36.9591647,533.682193 L37.2167434,526.197943 L36.4486767,526.197943 Z M34.2055002,522.253947 C36.6633238,522.253947 39.4110004,522.790603 39.4110004,522.790603 L39.4110004,524.028366 C39.4110004,524.162748 39.3020169,524.271731 39.1675835,524.271731 L29.2433656,524.271731 C29.1089835,524.271731 29,524.162748 29,524.028366 L29,522.747707 C29,522.747707 31.7476253,522.253947 34.2055002,522.253947 Z M34.2162241,521.008918 C33.5784861,521.008918 33.0370065,521.434282 32.8315593,522.02856 L31.8317745,522.02856 C32.0630821,520.870123 33.0425993,520 34.2162241,520 C35.3898489,520 36.3693661,520.870123 36.6006737,522.02856 L35.6009402,522.02856 C35.395493,521.434282 34.8539621,521.008918 34.2162241,521.008918 Z"
+                      id="icon-delete" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="dl_sel_val_con_out" [ngClass]="dealValue.get('value').hasError('required') && formSubmitFlag ? 'error_class':''">
+            <div class="dl_sel_val_label">
+              <label>Value:</label>
+            </div>
+            <div class="dl_sel_val_inp dl_sel_val_inp_sec">
+              <p class="dl_concurrency" *ngIf="currencySymbol">{{currencySymbol}} </p>
+              <ion-input type="tel" *ngIf="showValueField[i].status" placeholder="" #valueInputToFocus (focusout)="valueChange(dealValue.value,i)"
+                formControlName="value"></ion-input>
+              <ion-input type="tel" *ngIf="!showValueField[i].status" (focusin)="valueChangeFocusIn(i)" [value]="convertDealValue(showValueField[i].value)"></ion-input>
+            </div>
+
+          </div>
+          <div class="dl_sel_val_con_out">
+            <div class="dl_sel_val_label">
+              <label>Frequency:</label>
+            </div>
+            <div class="dl_sel_val_inp">
+              <select formControlName="frequency" (change)="onSelectChange(dealValue.value,i)">
+                <option *ngFor="let freq of frequencyList" value="{{freq.value}}">{{freq.text}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="dl_sel_val_con_out br_none dl_sel_val_con_out_last" *ngIf="durationText[i]">
+            <div class="dl_sel_val_label">
+              <label>Duration:</label>
+            </div>
+            <div class="dl_sel_val_inp left_padd dl_sel_val_inp_sec">
+              <ion-input type="tel" [disabled]="!durationText[i]" placeholder="-" formControlName="duration" #durationInputToFocus (focusout)="durationChange(dealValue.value,i)"
+                class="in_days"></ion-input>
+              <p *ngIf="durationText[i]">{{durationText[i]}} </p>
+            </div>
+          </div>
+
+          <!--Edit Evol Team  -->
+          <div class="dl_sel_val_con_out" [ngClass]="dealValue.get('product_qty').hasError('required') && formSubmitFlag ? 'error_class':''">
+            <div class="dl_sel_val_label">
+              <label>Quantity:</label>
+            </div>
+            <div class="dl_sel_val_inp dl_sel_val_inp_sec">
+              <!-- <ion-input type="tel" formControlName="product_qty" value=""></ion-input> -->
+              <ion-input type="tel" formControlName="product_qty" #quantityInputToFocus (focusout)="quantityChange(dealValue.value,i)"></ion-input>
+            </div>
+            
+          </div>
+
+        </div>
+        <div (click)="addAnotherPayment()">
+          <!-- Add stakeholder design Start -->
+          <div class="cmn_dl_card add_an_ac">
+            <p>
+              <span class="ad_pym_ac">+</span>Add another payment</p>
+
+          </div>
+        </div>
+        <div class="sub_cat_btn">
+          <button type="button" (click)="setValue()" [disabled]="disableSubmit" class="cat_btn">Set Value</button>
+        </div>
+
+      </div>
+    </ng-container>
+
+  </form>
+  <!-- Date and time picker for task  -->
+  <div *ngIf="isTask">
+    <input *ngIf="from!='log' && from!='edit'" [min]="initDate" name="datetime" [(ngModel)]="initDate" id="datetimePicker" [owlDateTime]="dt1"
+      [owlDateTimeTrigger]="dt1" placeholder="Select date" class="hide_div">
+    <input *ngIf="from=='log'" [max]="initDate" name="datetime" [(ngModel)]="initDate" [owlDateTime]="dt1" id="datetimePicker"
+      [owlDateTimeTrigger]="dt1" placeholder="Select date" class="hide_div">
+    <input *ngIf="from=='edit'" name="datetime" [(ngModel)]="initDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" id="datetimePicker"
+      placeholder="Select date" class="hide_div">
+    <owl-date-time #dt1 [pickerMode]="'modal'" [hour12Timer]='true' (afterPickerClosed)="setMoment($event)" [startAt]="initDate"></owl-date-time>
+  </div>
+  <!-- Date and time picker for task  -->
+</ion-content>
+
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

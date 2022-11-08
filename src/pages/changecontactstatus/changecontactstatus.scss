@@ -1,0 +1,36 @@
+page-changecontactstatus {
+	ion-header.add_modal_cont{
+		background: #fff;
+	}
+	.call_ouetr{
+		position:relative !important;
+		margin-top: -2px;
+		border:0px;
+		padding-top: 10px !important;
+	}
+	.contact_stat_title{
+    	font-size: 20px;
+    	padding: 15px;
+    	display: inline-block;
+   	 	text-align: left;
+    	max-width: 80%;
+	}
+	.call_ouetr.dl_postmain ul.dl_sel_sub_cat li{
+		margin:0px 10px;
+	}
+	.call_ouetr.dl_postmain ul.dl_sel_sub_cat li ion-item{
+	    border-bottom: 0px;
+    	background: #f5f5f5;
+    	margin: 0px 0px 7px;
+	}
+	.add_modal_cont .svg_cls .close_btn{
+		position: relative;
+		margin:12px 10px 0px 0px;
+		float:right;
+		top:0;
+		width: 24px;
+    	max-width: 100%;
+
+	}
+
+}

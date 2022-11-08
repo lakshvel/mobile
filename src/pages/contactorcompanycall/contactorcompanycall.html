@@ -1,0 +1,200 @@
+<ion-header class="bg_grey n_contact">
+  <ion-navbar>
+    <ion-title class="cmn_tit ad_new_hd_con call_hdr">Call</ion-title>
+    <svg (click)="goBack()" class="close_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px"
+      height="22px" viewBox="0 0 22 22" version="1.1">
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs/>
+      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3849.000000)"
+        opacity="0.25">
+        <g id="Contact-creation" transform="translate(0.000000, 3765.000000)" fill="#000000">
+          <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </ion-navbar>
+</ion-header>
+<ion-content class="call_outer">
+  <ion-list class="edit_info_spc_ipad">
+    <div *ngIf="from=='contact'" class="dbr_call_cc">
+      <div detail-none (click)="toggleSectionCall('contact',$event)" ion-item [ngClass]="contactAccordin? 'section-active': 'section'">
+        <ion-row class="call_page">
+          <ion-col col-3 text-left class="call_img">
+            <ion-thumbnail item-start>
+              <img *ngIf="contactOrComapnyCallDetails.picture_path!=null" src="{{contactOrComapnyCallDetails.picture_path}}">
+              <div *ngIf="contactOrComapnyCallDetails.picture_path==null" class="no_cal_pro no_img bg_{{contactOrComapnyCallDetails.first_name |slice :0:1}}">
+                <span>{{contactOrComapnyCallDetails.first_name |slice :0:1}}{{contactOrComapnyCallDetails.last_name |slice :0:1}}</span>
+              </div>
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col col-7 text-left class="call_text">
+            <h2>{{contactOrComapnyCallDetails.first_name}} {{contactOrComapnyCallDetails.last_name}}</h2>
+            <p *ngIf="contactOrComapnyCallDetails.title!=null && contactOrComapnyCallDetails.company_name!=null">{{contactOrComapnyCallDetails.title}} at {{contactOrComapnyCallDetails.company_name}}</p>
+            <p *ngIf="contactOrComapnyCallDetails.title==null || contactOrComapnyCallDetails.company_name==null">{{contactOrComapnyCallDetails.title}}{{contactOrComapnyCallDetails.company_name}}</p>
+          </ion-col>
+          <ion-col col-2 text-center center>
+            <div class="call_icon_right">
+              <svg *ngIf="!contactAccordin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px"
+                height="8px" viewBox="0 0 12 8" version="1.1">
+                <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                <title>arrow-down</title>
+                <desc>Created with Sketch.</desc>
+                <defs/>
+                <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2842.000000)"
+                  fill-opacity="0.2">
+                  <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#000000">
+                    <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                      <path d="M10.863961,97.863961 L10.863961,91.6923882 L12.863961,91.6923882 L12.863961,97.863961 L12.863961,99.863961 L4.69238816,99.863961 L4.69238816,97.863961 L10.863961,97.863961 Z"
+                        id="arrow-down" transform="translate(8.778175, 95.778175) rotate(45.000000) translate(-8.778175, -95.778175) "
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+
+              <svg *ngIf="contactAccordin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px" height="8px"
+                viewBox="0 0 12 8" version="1.1">
+                <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                <title>arrow-up</title>
+                <desc>Created with Sketch.</desc>
+                <defs/>
+                <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2868.000000)"
+                  fill-opacity="0.2">
+                  <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#000000">
+                    <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                      <path d="M10.863961,127.863961 L10.863961,121.692388 L12.863961,121.692388 L12.863961,127.863961 L12.863961,129.863961 L4.69238816,129.863961 L4.69238816,127.863961 L10.863961,127.863961 Z"
+                        id="arrow-up" transform="translate(8.778175, 125.778175) scale(1, -1) rotate(45.000000) translate(-8.778175, -125.778175) "
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="contactAccordin" class="call_acord">
+        <ion-card *ngFor="let phone of contactOrComapnyCallDetails.phones " [ngClass]="contactAccordin? 'expand-wrapper': 'collapsed'">
+          <ion-card-content>
+            <ion-row class="call_acrd_row">
+              <ion-col col-9 text-left>
+                <h5>{{phone.location}}</h5>
+                <a (click)="openNote(phone.phone_number)" href="tel:phone.phone_number"> {{phone.phone_number}}</a>
+              </ion-col>
+              <ion-col col-3 text-right>
+                <a (click)="openNote(phone.phone_number)" href="tel:phone.phone_number">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20"
+                    version="1.1">
+                    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                    <title>call-icon</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs/>
+                    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-85.000000, -3977.000000)"
+                      fill-opacity="0.3">
+                      <g id="Contact-creation" transform="translate(0.000000, 3765.000000)" fill="#000000">
+                        <path d="M90.39407,219.552833 C90.7955744,219.096752 91.2762739,218.516345 91.6036871,218.068104 C91.8117549,217.783388 91.8654306,217.402568 91.7457448,217.063251 C91.335734,215.901422 90.4741156,213.705595 89.9755526,212.616443 C89.8304326,212.299447 89.5447009,212.085841 89.2197545,212.053099 C88.4721227,211.977654 87.7596224,211.965849 87.3342149,212.129927 C86.8887321,212.30166 85.2405224,213.651087 85.0308384,216.069189 C84.7404282,219.418176 86.5092594,222.538154 89.9940116,226.545482 C93.2211886,230.256659 97.4386864,231.726354 100.184228,231.983954 C101.974496,232.151906 103.933021,230.982145 104.724971,229.379269 C104.921215,228.982031 104.944182,228.218362 104.995136,227.67623 C105.03384,227.265158 104.838958,226.869212 104.503378,226.67313 C103.551166,226.116702 101.696675,225.09783 100.689171,224.553301 C100.3114,224.34901 99.8550286,224.439304 99.5698924,224.777052 C99.0658852,225.373877 98.4560578,226.200724 98.0287788,226.766375 C97.7615913,227.120079 97.3100689,227.243576 96.9235358,227.060683 C94.0617959,225.706737 91.6350759,223.373302 90.2611992,220.784573 C90.0496438,220.38586 90.1011078,219.885601 90.39407,219.552833"
+                          id="call-icon" />
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <p class="p_ln_cn" *ngIf="contactOrComapnyCallDetails.phones.length==0">Contact details not added</p>
+      </div>
+    </div>
+    <div class="dbr_call_cc" *ngIf="loadHtml">
+      <div detail-none (click)="toggleSectionCall('company',$event)" ion-item [ngClass]="companyAccordin? 'section-active': 'section'">
+        <ion-row class="call_page">
+          <ion-col col-3 text-left class="call_img">
+            <ion-thumbnail item-start>
+              <img *ngIf="contactCompanyDetails.picture_path!=null" src="{{contactCompanyDetails.picture_path}}">
+              <img *ngIf="contactCompanyDetails.picture_path==null" src="assets/imgs/company__defaut-icon.png">
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col col-7 text-left class="call_text">
+            <h2>{{contactCompanyDetails.company_name}}</h2>
+          </ion-col>
+          <ion-col col-2 text-center center>
+            <div class="call_icon_right">
+              <svg *ngIf="!companyAccordin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px"
+                height="8px" viewBox="0 0 12 8" version="1.1">
+                <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                <title>arrow-down</title>
+                <desc>Created with Sketch.</desc>
+                <defs/>
+                <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2842.000000)"
+                  fill-opacity="0.2">
+                  <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#000000">
+                    <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                      <path d="M10.863961,97.863961 L10.863961,91.6923882 L12.863961,91.6923882 L12.863961,97.863961 L12.863961,99.863961 L4.69238816,99.863961 L4.69238816,97.863961 L10.863961,97.863961 Z"
+                        id="arrow-down" transform="translate(8.778175, 95.778175) rotate(45.000000) translate(-8.778175, -95.778175) "
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" *ngIf="companyAccordin" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px" height="8px"
+                viewBox="0 0 12 8" version="1.1">
+                <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                <title>arrow-up</title>
+                <desc>Created with Sketch.</desc>
+                <defs/>
+                <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2868.000000)"
+                  fill-opacity="0.2">
+                  <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#000000">
+                    <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                      <path d="M10.863961,127.863961 L10.863961,121.692388 L12.863961,121.692388 L12.863961,127.863961 L12.863961,129.863961 L4.69238816,129.863961 L4.69238816,127.863961 L10.863961,127.863961 Z"
+                        id="arrow-up" transform="translate(8.778175, 125.778175) scale(1, -1) rotate(45.000000) translate(-8.778175, -125.778175) "
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div *ngIf="companyAccordin" class="call_acord">
+        <ion-card *ngFor="let phone of contactCompanyDetails.phones" [ngClass]="companyAccordin? 'expand-wrapper': 'collapsed'">
+          <ion-card-content>
+            <ion-row class="call_acrd_row">
+              <ion-col col-9 text-left>
+                {{phone.location}}
+                <a (click)="openNote(phone.phone_number)" > {{phone.phone_number}}</a>
+              </ion-col>
+              <ion-col col-3 text-right>
+                <a (click)="openNote(phone.phone_number)" >
+                  <!-- <ion-icon name="call" class="close_btn"></ion-icon> -->
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20"
+                    version="1.1">
+                    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                    <title>call-icon</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs/>
+                    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-85.000000, -3977.000000)"
+                      fill-opacity="0.3">
+                      <g id="Contact-creation" transform="translate(0.000000, 3765.000000)" fill="#000000">
+                        <path d="M90.39407,219.552833 C90.7955744,219.096752 91.2762739,218.516345 91.6036871,218.068104 C91.8117549,217.783388 91.8654306,217.402568 91.7457448,217.063251 C91.335734,215.901422 90.4741156,213.705595 89.9755526,212.616443 C89.8304326,212.299447 89.5447009,212.085841 89.2197545,212.053099 C88.4721227,211.977654 87.7596224,211.965849 87.3342149,212.129927 C86.8887321,212.30166 85.2405224,213.651087 85.0308384,216.069189 C84.7404282,219.418176 86.5092594,222.538154 89.9940116,226.545482 C93.2211886,230.256659 97.4386864,231.726354 100.184228,231.983954 C101.974496,232.151906 103.933021,230.982145 104.724971,229.379269 C104.921215,228.982031 104.944182,228.218362 104.995136,227.67623 C105.03384,227.265158 104.838958,226.869212 104.503378,226.67313 C103.551166,226.116702 101.696675,225.09783 100.689171,224.553301 C100.3114,224.34901 99.8550286,224.439304 99.5698924,224.777052 C99.0658852,225.373877 98.4560578,226.200724 98.0287788,226.766375 C97.7615913,227.120079 97.3100689,227.243576 96.9235358,227.060683 C94.0617959,225.706737 91.6350759,223.373302 90.2611992,220.784573 C90.0496438,220.38586 90.1011078,219.885601 90.39407,219.552833"
+                          id="call-icon" />
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <p class="p_ln_cn" *ngIf="contactCompanyDetails.phones.length==0">Contact details not added</p>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

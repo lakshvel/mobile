@@ -1,0 +1,31 @@
+.nc_im_dl {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 41px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.dealTableColorCodeParent {
+    display: flex;
+}
+
+
+.dealTableColorCode {
+    display: flex;
+    align-items: center;
+
+    span {
+        flex: 0 1 15px;
+        margin-right: 5px;
+        opacity: 0.3;
+        &.is-active {
+            opacity: 1;
+        }
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}

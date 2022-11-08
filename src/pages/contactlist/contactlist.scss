@@ -1,0 +1,120 @@
+.white_font.col {
+  color: white;
+}
+.wrapper-div {
+  display: flex;
+  flex-direction: column; //flex-direction wont work in IE, its okay here since child elements are div or give 100% width to child elements
+}
+
+.order-1 {
+ order: 1;
+}
+
+.order-2 {
+ order: 2;
+}
+
+.order-3 {
+ order: 3;
+}
+
+
+  .tooltip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: normal;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    line-break: auto;
+  }
+  .tooltip.in {
+    filter: alpha(opacity=90);
+    opacity: 0.9;
+  }
+  .tooltip.top {
+    padding: 5px 0;
+    margin-top: -3px;
+  }
+  .tooltip.right {
+    padding: 0 5px;
+    margin-left: 3px;
+  }
+  .tooltip.bottom {
+    padding: 5px 0;
+    margin-top: 3px;
+  }
+  .tooltip.left {
+    padding: 0 5px;
+    margin-left: -3px;
+  }
+  .tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 4px;
+  }
+
+  .popover {
+    position: absolute; 
+  }
+  .popover.top {
+    margin-top: -10px;
+  }
+  .popover.right {
+    margin-left: 10px;
+  }
+  .popover.bottom {
+    margin-top: 10px;
+  }
+  .popover.left {
+    margin-left: -10px;
+  }
+  p.over_due_red {
+    color: red;
+}
+
+.deal_total{
+
+  padding:0 15px;
+
+  span{
+    color: #FFFFFF; 
+    font-family: Roboto;  
+    font-size: 15px;  
+    font-weight: 500; 
+    letter-spacing: 0.4px;  
+    line-height: 18px;
+  }
+
+  h3{
+    color: #00DEF2; 
+    font-family: Roboto;  
+    font-size: 18px;  
+    font-weight: 500; 
+    letter-spacing: 0.4px;  
+    line-height: 28px;
+    display: inline-block;
+    margin-top: -3px;
+    margin-bottom: 3px;
+  }
+}
+.has-refresher > .scroll-content {
+  border-top: 1px solid transparent;
+}

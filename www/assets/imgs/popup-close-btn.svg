@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>popup-close-btn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M46.5269119,293.526912 L46.5269119,271.526912 L48.5269119,271.526912 L48.5269119,293.526912 L70.5269119,293.526912 L70.5269119,295.526912 L48.5269119,295.526912 L48.5269119,317.526912 L46.5269119,317.526912 L46.5269119,295.526912 L24.5269119,295.526912 L24.5269119,293.526912 L46.5269119,293.526912 Z" id="path-1"></path>
+        <filter x="-14.1%" y="-12.0%" width="128.3%" height="128.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-26.000000, -3619.000000)" opacity="0.5">
+        <g id="Contact-actions" transform="translate(0.000000, 3345.000000)">
+            <g id="popup-close-btn" transform="translate(47.526912, 294.526912) rotate(45.000000) translate(-47.526912, -294.526912) ">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

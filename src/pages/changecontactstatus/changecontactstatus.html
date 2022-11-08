@@ -1,0 +1,33 @@
+<ion-header class="add_modal_cont">
+  <div class="svg_cls" text-center>
+    <ion-col class="contact_stat_title col-9">
+      Update Status
+    </ion-col>
+    <ion-col class="col-3">
+    <img (click)="goBack()" class="close_btn" src="assets/imgs/popup-close-btn-drak.png">
+    </ion-col>
+  </div>
+</ion-header>
+<ion-content class="add_modal_cont" scroll="true">
+  <div class="call_ouetr  dl_postmain padd_status_change" *ngIf="!showloader">
+    <div class="call_opt">
+      <ul class="dl_sel_sub_cat dl_sl_st_details">
+        <li *ngFor="let status of statusList">
+          <ion-item>
+            <ion-label (click)="changeStatus(status)">{{status.status_name}}</ion-label>
+          </ion-item>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+
+</ion-content>
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

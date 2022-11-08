@@ -1,0 +1,285 @@
+<ion-header class="cst_header" [class.ios_header]="con.isIOSPlatform">
+  <ion-toolbar>
+    <ion-grid *ngIf="!searchbarValue" (click)="closeSelect()">
+      <ion-row>
+        <ion-col col-2 class="p_top p_bottom left_icon">
+          <!-- <ion-icon name="menu"></ion-icon> -->
+          <div class="menu_tog" menuToggle>
+            <div class="menu_normal">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23px" height="17px" viewBox="0 0 23 17"
+                version="1.1">
+                <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+                <title>Nav icon</title>
+                <desc>Created with Sketch.</desc>
+                <defs/>
+                <g id="Contacts---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-15.000000, -51.000000)"
+                  opacity="0.400000006">
+                  <g id="Elements/Header" fill="#FFFFFF">
+                    <g id="Elements/Nav-icon/Default" transform="translate(15.000000, 47.000000)">
+                      <path d="M1.5,18 L21.5,18 C22.3284271,18 23,18.6715729 23,19.5 C23,20.3284271 22.3284271,21 21.5,21 L1.5,21 C0.671572875,21 1.01453063e-16,20.3284271 0,19.5 C-1.01453063e-16,18.6715729 0.671572875,18 1.5,18 Z M1.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L1.5,14 C0.671572875,14 1.01453063e-16,13.3284271 0,12.5 C-1.01453063e-16,11.6715729 0.671572875,11 1.5,11 Z M1.5,4 L21.5,4 C22.3284271,4 23,4.67157288 23,5.5 C23,6.32842712 22.3284271,7 21.5,7 L1.5,7 C0.671572875,7 1.01453063e-16,6.32842712 0,5.5 C2.66442485e-16,4.67157288 0.671572875,4 1.5,4 Z"
+                        id="Nav-icon" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="menu_active">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23px" height="17px" viewBox="0 0 23 17"
+                version="1.1">
+                <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                <title>Nav - Active</title>
+                <desc>Created with Sketch.</desc>
+                <defs>
+                  <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="linearGradient-1">
+                    <stop stop-color="#009CD7" offset="0%" />
+                    <stop stop-color="#00E1F3" offset="100%" />
+                  </linearGradient>
+                </defs>
+                <g id="Elements/Nav-icon/Active" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, -4.000000)">
+                  <path d="M1.5,18 L21.5,18 C22.3284271,18 23,18.6715729 23,19.5 C23,20.3284271 22.3284271,21 21.5,21 L1.5,21 C0.671572875,21 1.01453063e-16,20.3284271 0,19.5 C-1.01453063e-16,18.6715729 0.671572875,18 1.5,18 Z M1.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L1.5,14 C0.671572875,14 1.01453063e-16,13.3284271 0,12.5 C-1.01453063e-16,11.6715729 0.671572875,11 1.5,11 Z M1.5,4 L21.5,4 C22.3284271,4 23,4.67157288 23,5.5 C23,6.32842712 22.3284271,7 21.5,7 L1.5,7 C0.671572875,7 1.01453063e-16,6.32842712 0,5.5 C2.66442485e-16,4.67157288 0.671572875,4 1.5,4 Z"
+                    id="Nav---Active" fill="url(#linearGradient-1)" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-8 class="p_top p_bottom  p_mid">
+          <ion-label class="hd_cont" text-center>{{pageTitle}}</ion-label>
+          <div class="io_selct" *ngIf="pageTitle!='Recently Viewed'">
+            <ion-select (click)="closeSelect()" #myselect class="hd_slect" interface="popover" [(ngModel)]="dealsValue" (click)="addBodyClass()"
+              (ionChange)='onChangeTime($event)'>
+              <ion-option (ionSelect)="clickOption()" *ngFor="let optv of con.dealOptions" value="{{optv.filterViewId}}">{{optv.filterViewName}}</ion-option>
+            </ion-select>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="16px" viewBox="0 0 12 8"
+              version="1.1">
+              <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+              <title>arrow-down</title>
+              <desc>Created with Sketch.</desc>
+              <defs/>
+              <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2842.000000)"
+                fill-opacity="0.2">
+                <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#ffffff">
+                  <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                    <path d="M10.863961,97.863961 L10.863961,91.6923882 L12.863961,91.6923882 L12.863961,97.863961 L12.863961,99.863961 L4.69238816,99.863961 L4.69238816,97.863961 L10.863961,97.863961 Z"
+                      id="arrow-down" transform="translate(8.778175, 95.778175) rotate(45.000000) translate(-8.778175, -95.778175) "
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </ion-col>
+        <ion-col col-2 text-right class="p_top p_bottom right_icon">
+          <div class="ntf_cnt"  style="visibility: hidden;">
+            <!-- (01-06-2020 @Laksh) Commented for notifications stopped  -->
+            <div *ngIf="con.notificationsCount==0" (click)="notificationsModal()"  style="visibility: hidden;">
+             
+            </div>
+            <div *ngIf="con.notificationsCount>0" (click)="notificationsModal()" style="visibility: hidden;" >
+                <div *ngIf="hideMe">
+                  
+              </div>
+              <div *ngIf="!hideMe">
+                
+              </div>
+              
+              <span class="not_cnt_acc" *ngIf="hideMe">{{con.notificationsCount}}</span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p class="nn_cnt_y" *ngIf="!con.isConnected">{{con.htmlInternetConnectionMsg}}</p>
+    <div class="padd_sp contact_con">
+      <div [ngClass]="searchbarValue ? 'srch_svg_opn':'srch_svg'">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20"
+          version="1.1">
+          <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+          <title>Search</title>
+          <desc>Created with Sketch.</desc>
+          <defs/>
+          <g id="Contacts---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-143.000000, -133.000000)"
+            opacity="0.3">
+            <g id="Search" transform="translate(15.000000, 120.000000)" fill="#000000" fill-rule="nonzero">
+              <g transform="translate(128.000000, 13.000000)">
+                <path d="M13.312,13.376 C9.624,13.376 6.624,10.376 6.624,6.688 C6.624,3 9.624,0 13.312,0 C17,0 20,3 20,6.688 C20,10.376 17,13.376 13.312,13.376 Z M13.312,1.772 C10.6,1.772 8.396,3.976 8.396,6.688 C8.396,9.4 10.6,11.604 13.312,11.604 C16.024,11.604 18.228,9.4 18.228,6.688 C18.228,3.976 16.024,1.772 13.312,1.772 Z"
+                  id="XMLID_2942_" />
+                <path d="M7.152,10.98 C6.024,11.956 0.02,16.9 0.02,16.9 C-0.168,18.396 1.012,19.472 2.404,19.348 C3.124,18.568 8.52,12.988 8.804,12.692 C8.168,12.216 7.608,11.636 7.152,10.98 Z"
+                  id="XMLID_2946_" />
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div *ngIf="searchbarValue">
+        <ion-searchbar #searchInputToFocus class="contact_sr" (ionClear)="clearSearchBar();" (ionInput)="getItems($event)" [(ngModel)]="searchInput"></ion-searchbar>
+        <button *ngIf="showSearchCoss" class="cls_srch_crs" bottom (click)="closeSerch()">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22"
+            version="1.1">
+            <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+            <title>cross-thick</title>
+            <desc>Created with Sketch.</desc>
+            <defs/>
+            <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3819.000000)"
+              opacity="0.25">
+              <g id="Contact-creation" transform="translate(0.000000, 3735.000000)" fill="#000000">
+                <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+                  id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+                />
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div *ngIf="!searchbarValue">
+        <ion-searchbar (click)="openSearchBar()" class="contact_sr marginBottom"></ion-searchbar>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class=" bg_image cont_item" (ionScrollStart)="scrollStart($event)" (ionScroll)="onScroll($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div text-right class="deal_total" *ngIf="con.totalDealValue && searchbarValue==false"><span>Total: </span><h3>{{con.currencyDataValue}}{{con.totalDealValue}}</h3></div>
+  <div class="padd_sp contact_con" *ngIf="!showloader">
+    <div *ngIf="searchbarValue==false">
+      <ion-list *ngIf="pageTitle=='Deals' && !searchbarValue" (click)="removeContentClass();" class="dal_lst cm_cn_lst new_deal_design">
+        <ion-item *ngFor="let cntl of con.dealList;let i = index" [ngClass]="(i+1)%2==0?'item_list_bg':''">
+          <ion-thumbnail item-start>
+            <div *ngIf="cntl.picture_path!=null">
+              <lazy-img inputSrc="{{cntl.picture_path}}" class="cnt_prf"></lazy-img>
+            </div>
+            <div *ngIf="cntl.picture_path==null">
+              <div class="no_img bg_{{cntl.party | slice:0:1}}">
+                <span>{{nameSpace(cntl.party)}}</span>
+              </div>
+
+            </div>
+          </ion-thumbnail>
+          <div (click)='detailDeals(cntl,"history");'>
+            <h2>{{cntl.deal_name}}</h2>
+            <p>{{cntl.party}}</p>
+            <div *ngIf="cntl.deal_status.status_name=='pending'" class="deal_status">
+              <div class="sts_nme">
+                <div *ngFor="let deal_status of con.dealPipelineStage" [ngClass]="deal_status.id_pipeline_stage==cntl.id_pipeline_stage?'sts_nme active':'sts_nme nxt_stg'">
+                  <div class="dot"></div>
+                </div>
+              </div>
+              <p class="dl_val">{{cntl.deal_value}}</p>
+            </div>
+            <div *ngIf="cntl.deal_status.status_name=='won'" class="deal_bot_st">
+              <div class="won_im">
+                <img src="assets/imgs/Deal-labelwon@3x.png">
+              </div>
+              <p class="dl_val">{{cntl.deal_value}}</p>
+            </div>
+            <div *ngIf="cntl.deal_status.status_name=='lost'" class="deal_bot_st">
+              <div class="won_im">
+                <img src="assets/imgs/Deal-labellost@3x.png">
+              </div>
+              <p class="dl_val">{{cntl.deal_value}}</p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+    <div *ngIf="searchbarValue" class="wrapper-div">
+      
+      <h6 text-left class="sr_text" text-center *ngIf="searchInput != '' && (contactSearchData.length==0&&dealSearchData.length==0&&taskSearchData.length==0)">Nothing to display</h6>
+     
+      <div [ngClass]="{'order-1': pageTitle=='Deals', 'order-2': pageTitle!='Deals'}">
+        <h6 text-left class="sr_text" *ngIf="dealSearchData?.length>0">DEALS</h6>
+        <ion-list (click)="removeContentClass();" class="dal_lst cm_cn_lst new_deal_design">
+          <ion-item *ngFor="let dealsch of dealSearchData;let i = index" [ngClass]="(i+1)%2==0?'item_list_bg':''">
+            <ion-thumbnail item-start>
+              <div *ngIf="dealsch.picture_path!=null">
+                <!-- <lazy-img inputSrc="http://i.imgur.com/UtVqQ8P.png" class="cnt_prf"></lazy-img> -->
+                <lazy-img inputSrc="{{dealsch.picture_path}}" class="cnt_prf"></lazy-img>
+    
+              </div>
+              <div *ngIf="dealsch.picture_path==null">
+                <div class="no_img bg_{{dealsch.deal_name | slice:0:1}}">
+                  <span>{{dealsch.deal_name | slice:0:2}}</span>
+                </div>
+              </div>
+            </ion-thumbnail>
+            <div (click)='detailDeals(dealsch,"info");'>
+              <h2>{{dealsch.deal_name}}</h2>
+              <p>{{dealsch.party}}</p>
+              <div *ngIf="dealsch.deal_status.status_name=='pending'" class="deal_status">
+                <div class="sts_nme">
+                  <div *ngFor="let deal_status of con.dealPipelineStage" [ngClass]="deal_status.id_pipeline_stage==dealsch.id_pipeline_stage?'sts_nme active':'sts_nme nxt_stg'">
+                    <div class="dot"></div>
+                  </div>
+                </div>
+                <p class="dl_val">{{dealsch.deal_value}}</p>
+              </div>
+              <div *ngIf="dealsch.deal_status.status_name=='won'" class="deal_bot_st">
+                <div class="won_im">
+                  <img src="assets/imgs/Deal-labelwon@3x.png">
+                </div>
+                <p class="dl_val">{{dealsch.deal_value}}</p>
+              </div>
+              <div *ngIf="dealsch.deal_status.status_name=='lost'" class="deal_bot_st">
+                <div class="won_im">
+                  <img src="assets/imgs/Deal-labellost@3x.png">
+                </div>
+                <p class="dl_val">{{dealsch.deal_value}}</p>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+      
+
+    </div>  
+
+  </div>
+  
+
+  
+    <!-- end	 -->
+  <div *ngIf="con.dealList?.length == 0 && !searchbarValue" text-center red>
+    <span class="no_record_found">{{con.noRecordMsg}} {{pageTitle}}</span>
+  </div>
+
+  <ion-infinite-scroll enabled="enablePaging" threshold="50%"  (ionInfinite)="doInfinite($event)" *ngIf="!searchbarValue && con.isConnected && enablePaging">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+
+<!-- </ion-content > -->
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+    </div>
+  </div>
+</div>
+<ion-fab *ngIf="pageTitle=='Contacts'" right bottom fixied (click)="dealnote()">
+  <button ion-fab>
+    <img src="assets/imgs/Btn-Plus@2x.png" class="btn_fxed_im">
+  </button>
+</ion-fab>
+<!-- Uncommented by Evolteam, 27th Nov -->
+ <ion-fab *ngIf="pageTitle=='Deals'" right bottom fixied (click)="dealnote()">
+  <button ion-fab>
+    <img src="assets/imgs/Btn-Plus@2x.png" class="btn_fxed_im">
+  </button>
+</ion-fab>
+<!-- uncomment ends-->
+
+<!-- Uncommented by Evolteam, 13th Dec -->
+ <ion-fab *ngIf="pageTitle=='Recently Viewed'" right bottom fixied (click)="dealnote()">
+  <button ion-fab>
+    <img src="assets/imgs/Btn-Plus@2x.png" class="btn_fxed_im">
+  </button>
+</ion-fab>
+<!-- uncomment ends-->

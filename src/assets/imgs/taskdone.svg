@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>task-status—done</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="96.5162628%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#6CBE45" offset="0%"></stop>
+            <stop stop-color="#D8FF8A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-31.000000, -2668.000000)">
+        <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="History---tasks" transform="translate(27.000000, 688.000000)">
+                <path d="M19.7248,255 C19.4688,256.4656 19.1392,259.6176 20,261.1344 C17.4816,261.9568 13.3568,266.5552 10.928,271 C9.6256,269.288 6.6432,266.1712 4,265.1408 C4.416,264.8752 8.3776,262.4592 8.4768,262.3824 C8.8256,262.9488 10.2624,265.944 10.6464,266.648 C13.7696,259.656 17.2576,256.3024 19.7248,255 Z" id="task-status—done"></path>
+            </g>
+        </g>
+    </g>
+</svg>

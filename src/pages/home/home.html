@@ -1,0 +1,93 @@
+<ion-content class="bg_image login_page">
+  <div class="hm_logo">
+    <div class="logo_in" *ngIf="Loadershow==false">
+      <img src="assets/imgs/UiPilot.svg" width="145" height="169" class="logo" />
+    </div>
+    <div class="logo_in ldr_shw" *ngIf="Loadershow">
+      <img src="assets/lodergif/Login-loader--dark-bgd-@2x.gif"  class="login_loader ldr_gif" />
+      <img src="assets/imgs/Upilot_Logo_Text.png" class="logo ldr_img" />
+    </div>
+  </div>
+  <p class="successMsg" *ngIf="loginData.success">
+    An email has been sent with instructions to reset your password
+  </p>
+  <span *ngIf="!Loadershow">
+  <div class="spc_padd" *ngIf="constant.isConnected">
+    <form (ngSubmit)="login()">
+      <div class="login_form">
+        <ion-row>
+          <ion-col col-12 class="ui_pading">
+            <ion-input name="userName" type="email" (input)="onFocusEvent(loginData.username,'username')" (focusout)="emailValidation(loginData.username)"
+              [class.white-input]="showwhiteUserName" [ngClass]="errorclass==1 ? 'cst_input  error': errorclass==3 ? 'cst_input  error':'cst_input'"
+              placeholder="Your email" [(ngModel)]="loginData.username"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="ui_pading">
+            <ion-input type="password" name="password" (input)="onFocusEvent(loginData.password,'password')" [class.white-input]="showwhitePassword"
+               [ngClass]="errorclass==2 ? 'cst_input  error': errorclass==3 ? 'cst_input  error':'cst_input'"
+              placeholder="Password" [(ngModel)]="loginData.password"></ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col text-right *ngIf="showLink" class="ui_pading tab_frg_pwd">
+          <a class="fr_pass" (click)="goToOtherPage()">Forgot your password?</a>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col center text-center class="p_left p_right">
+          <button class="btn_submit" ion-button full>SIGN IN</button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-row>
+      <ion-col center text-center>
+        <img src="assets/imgs/Shadow.png" class="shadow_im" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <a href="https://upilot.com/signup/" class="sign_up">SIGN UP</a>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="spc_padd no_net_con" *ngIf="!constant.isConnected">
+    <div class="cnt_svg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102px" height="74px" viewBox="0 0 102 74" version="1.1">
+          <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+          <title>Icon no-connexion</title>
+          <desc>Created with Sketch.</desc>
+          <defs>
+              <path d="M214.777151,420.960124 L160.116915,420.960124 C148.128616,420.960124 138,410.397356 138,397.894443 C138,387.045165 144.586471,380.42686 151.057635,377.5768 C150.106613,368.167592 156.20905,354.266971 169.881315,350.148797 C172.411527,349.386024 174.981092,349 177.519826,349 C186.940064,349 194.606649,354.17999 198.415001,360.073623 C200.572223,358.963679 203.136274,358.373112 205.911385,358.373112 C209.873645,358.373112 213.881526,359.583824 216.372132,361.532242 C220.193017,364.523175 224.496432,368.981 224.877944,377.284274 C231.483716,379.886176 238,388.288212 238,398.211283 C238,409.151552 229.120948,420.960124 214.777151,420.960124 Z M202.671436,380.733339 L198.266684,376.328494 C197.828692,375.890502 197.118455,375.890502 196.680463,376.328494 L188.000058,385.008992 L179.319653,376.328494 C178.881568,375.890502 178.171424,375.890502 177.733432,376.328494 L173.328494,380.733339 C172.890502,381.171331 172.890502,381.881568 173.328494,382.31956 L182.009085,390.999965 L173.328494,399.68037 C172.890502,400.118362 172.890502,400.828599 173.328494,401.266591 L177.733432,405.671343 C178.171424,406.109428 178.881568,406.109428 179.319653,405.671343 L188.000058,396.990938 L196.680463,405.671343 C197.118455,406.109428 197.828692,406.109428 198.266684,405.671343 L202.671436,401.266591 C203.109521,400.828599 203.109521,400.118362 202.671436,399.68037 L193.991031,390.999965 L202.671436,382.31956 C203.109521,381.881568 203.109521,381.171331 202.671436,380.733339 Z" id="path-1"/>
+              <filter x="-2.0%" y="-1.4%" width="104.0%" height="105.6%" filterUnits="objectBoundingBox" id="filter-2">
+                  <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+                  <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+                  <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+                  <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"/>
+              </filter>
+              <filter x="-3.0%" y="-2.8%" width="106.0%" height="108.3%" filterUnits="objectBoundingBox" id="filter-3">
+                  <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"/>
+                  <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+                  <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+                  <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"/>
+              </filter>
+          </defs>
+          <g id="Offline-mode---login" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-137.000000, -349.000000)">
+              <g id="Icon-no-connexion">
+                  <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"/>
+                  <use fill-opacity="0.150000006" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"/>
+                  <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"/>
+              </g>
+          </g>
+      </svg>
+    </div>
+    <p>
+        The Internet connection
+        appears to be offline
+    </p>
+  </div>
+  </span>
+</ion-content>
+<div center middle class="ldr_mask" *ngIf="Loadershow">
+</div>

@@ -1,0 +1,7 @@
+{
+  "name": "upilot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

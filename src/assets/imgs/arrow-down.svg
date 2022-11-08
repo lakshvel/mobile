@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="8px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-32.000000, -2842.000000)" fill-opacity="0.2">
+        <g id="Contact-open" transform="translate(0.000000, 1725.000000)" fill="#000000">
+            <g id="History---notes" transform="translate(29.000000, 1023.000000)">
+                <path d="M10.863961,97.863961 L10.863961,91.6923882 L12.863961,91.6923882 L12.863961,97.863961 L12.863961,99.863961 L4.69238816,99.863961 L4.69238816,97.863961 L10.863961,97.863961 Z" id="arrow-down" transform="translate(8.778175, 95.778175) rotate(45.000000) translate(-8.778175, -95.778175) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

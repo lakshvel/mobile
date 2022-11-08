@@ -1,0 +1,31 @@
+<ion-header class="add_modal_cont">
+  <div class="svg_cls" text-center>
+    <img (click)="goBack()" class="close_btn" src="assets/imgs/popup-close-btn.png">
+  </div>
+</ion-header>
+<ion-content class="add_modal_cont">
+  <div class="call_ouetr  dl_postmain" *ngIf="!showloader">
+    <div class="call_opt">
+      <ul class="dl_sel_sub_cat dl_sl_st_details">
+        <li class="pt_li_hilight">
+          <ion-item class="postpone_ion">
+            <ion-label class="cgnage_date">Change date</ion-label>
+          </ion-item>
+        </li>
+        <li *ngFor="let day of weekDay">
+          <ion-item>
+            <ion-label (click)="postPone(day)">{{day.day}}</ion-label>
+          </ion-item>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

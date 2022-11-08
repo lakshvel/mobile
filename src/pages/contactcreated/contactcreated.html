@@ -1,0 +1,656 @@
+<ion-header class="bg_grey n_contact n_ad_con">
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1 class="p_right nw_con_icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24px"
+            height="25px"
+            viewBox="0 0 24 25"
+            version="1.1"
+          >
+            <title>Icon contact</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Create-contact---iPhone-8"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              transform="translate(-176.000000, -301.000000)"
+              opacity="0.3"
+            >
+              <g
+                id="New-person"
+                transform="translate(15.000000, 281.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M176.507626,21.6525605 C177.393466,21.6525605 178.874108,22.8555885 178.874108,24.3892289 C178.874108,25.9396001 178.636168,27.2183684 178.662617,28.1834558 C179.078988,28.0843723 179.561582,28.3685986 179.561582,29.3469105 C179.561582,30.890369 178.685659,32.228948 178.244542,32.228948 C178.07593,32.228948 178.011511,32.1818608 177.932164,32.0760649 C177.852817,32.433026 177.115752,34.3508778 176.216787,35.3159652 L176.216787,37.2263031 C177.274446,37.5303662 180.935827,38.4273274 181.762758,38.5946373 C184.049894,39.0573943 184.135953,40.8553241 184.135953,43.1887456 C181.571103,44.4182225 176.772116,45 172.647276,45 C168.522437,45 164.457208,44.6165899 161.000006,43.254868 C161.000006,41.0866525 160.981271,39.2179917 163.109913,38.6825 C164.810863,38.2546075 168.905847,37.2395276 168.905847,37.2395276 C168.919072,36.8825665 168.905847,35.3225774 168.905847,35.3225774 C167.782066,34.3707146 167.306185,32.5462356 167.213613,32.1232523 C167.164021,32.1925807 167.038689,32.2233376 166.906444,32.2233376 C166.561706,32.2233376 165.547828,31.0374413 165.547828,29.4262574 C165.547828,28.4942313 165.977524,28.0843723 166.460118,28.1834558 C166.26175,27.562105 166.274975,25.6187058 166.274975,24.8387614 C166.274975,21.9962971 168.681131,20 172.329989,20 C174.577451,20 175.939173,20.9783118 176.507626,21.6525605"
+                  id="Icon-contact"
+                />
+              </g>
+            </g>
+          </svg>
+        </ion-col>
+        <ion-col col-11 class="p_left">
+          <!-- <ion-title class="cmn_tit ad_new_hd_con_iocn">Contact created</ion-title> -->
+          <h6 class="add_com_tit">Contact created</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <svg
+      (click)="close_modal()"
+      class="close_btn"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="22px"
+      height="22px"
+      viewBox="0 0 22 22"
+      version="1.1"
+    >
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs />
+      <g
+        id="Assets"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+        transform="translate(-45.000000, -3849.000000)"
+        opacity="0.25"
+      >
+        <g
+          id="Contact-creation"
+          transform="translate(0.000000, 3765.000000)"
+          fill="#000000"
+        >
+          <path
+            d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick"
+            transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </ion-navbar>
+</ion-header>
+<!-- New Contact header end-->
+<ion-content padding>
+  <div *ngIf="!showloader">
+    <div class="img_ar" center *ngIf="contactData.picture_path!=null">
+      <img src="{{contactData.picture_path}}" class="img_thumb" />
+    </div>
+    <div
+      class="img_ar no_cs_im no_img bg_{{contactData.first_name|slice:0:1}}"
+      center
+      *ngIf="contactData.picture_path==null"
+    >
+      <span
+        >{{contactData.first_name | slice:0:1}}{{contactData.last_name |
+        slice:0:1}}</span
+      >
+    </div>
+
+    <!--       **************** For Contact  edit  start  ********************   -->
+    <div class="cr_form_group new_con_form">
+      <div class="in_item" (click)="editContactName()" *ngIf="!editName">
+        <div class="in_image">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="24px"
+            height="25px"
+            viewBox="0 0 24 25"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+            <title>Icon contact</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Create-contact---iPhone-8"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              transform="translate(-176.000000, -301.000000)"
+              opacity="0.3"
+            >
+              <g
+                id="New-person"
+                transform="translate(15.000000, 281.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M176.507626,21.6525605 C177.393466,21.6525605 178.874108,22.8555885 178.874108,24.3892289 C178.874108,25.9396001 178.636168,27.2183684 178.662617,28.1834558 C179.078988,28.0843723 179.561582,28.3685986 179.561582,29.3469105 C179.561582,30.890369 178.685659,32.228948 178.244542,32.228948 C178.07593,32.228948 178.011511,32.1818608 177.932164,32.0760649 C177.852817,32.433026 177.115752,34.3508778 176.216787,35.3159652 L176.216787,37.2263031 C177.274446,37.5303662 180.935827,38.4273274 181.762758,38.5946373 C184.049894,39.0573943 184.135953,40.8553241 184.135953,43.1887456 C181.571103,44.4182225 176.772116,45 172.647276,45 C168.522437,45 164.457208,44.6165899 161.000006,43.254868 C161.000006,41.0866525 160.981271,39.2179917 163.109913,38.6825 C164.810863,38.2546075 168.905847,37.2395276 168.905847,37.2395276 C168.919072,36.8825665 168.905847,35.3225774 168.905847,35.3225774 C167.782066,34.3707146 167.306185,32.5462356 167.213613,32.1232523 C167.164021,32.1925807 167.038689,32.2233376 166.906444,32.2233376 C166.561706,32.2233376 165.547828,31.0374413 165.547828,29.4262574 C165.547828,28.4942313 165.977524,28.0843723 166.460118,28.1834558 C166.26175,27.562105 166.274975,25.6187058 166.274975,24.8387614 C166.274975,21.9962971 168.681131,20 172.329989,20 C174.577451,20 175.939173,20.9783118 176.507626,21.6525605"
+                  id="Icon-contact"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <ion-item class="item_active"
+          >{{contactData.first_name}} {{contactData.last_name}}
+        </ion-item>
+      </div>
+      <div
+        class="in_item bg_white edit_note_cs_filed"
+        *ngIf="editName"
+        (clickOutside)="onClickedOutsideName($event)"
+      >
+        <ion-row>
+          <ion-col col-2>
+            <div class="in_image">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="24px"
+                height="25px"
+                viewBox="0 0 24 25"
+                version="1.1"
+              >
+                <title>Icon contact</title>
+                <desc>Created with Sketch.</desc>
+                <defs />
+                <g
+                  id="Create-contact---iPhone-8"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="#00a6db"
+                  fill-rule="evenodd"
+                  transform="translate(-176.000000, -301.000000)"
+                  opacity="0.3"
+                >
+                  <g
+                    id="New-person"
+                    transform="translate(15.000000, 281.000000)"
+                    fill="#00a6db"
+                  >
+                    <path
+                      d="M176.507626,21.6525605 C177.393466,21.6525605 178.874108,22.8555885 178.874108,24.3892289 C178.874108,25.9396001 178.636168,27.2183684 178.662617,28.1834558 C179.078988,28.0843723 179.561582,28.3685986 179.561582,29.3469105 C179.561582,30.890369 178.685659,32.228948 178.244542,32.228948 C178.07593,32.228948 178.011511,32.1818608 177.932164,32.0760649 C177.852817,32.433026 177.115752,34.3508778 176.216787,35.3159652 L176.216787,37.2263031 C177.274446,37.5303662 180.935827,38.4273274 181.762758,38.5946373 C184.049894,39.0573943 184.135953,40.8553241 184.135953,43.1887456 C181.571103,44.4182225 176.772116,45 172.647276,45 C168.522437,45 164.457208,44.6165899 161.000006,43.254868 C161.000006,41.0866525 160.981271,39.2179917 163.109913,38.6825 C164.810863,38.2546075 168.905847,37.2395276 168.905847,37.2395276 C168.919072,36.8825665 168.905847,35.3225774 168.905847,35.3225774 C167.782066,34.3707146 167.306185,32.5462356 167.213613,32.1232523 C167.164021,32.1925807 167.038689,32.2233376 166.906444,32.2233376 C166.561706,32.2233376 165.547828,31.0374413 165.547828,29.4262574 C165.547828,28.4942313 165.977524,28.0843723 166.460118,28.1834558 C166.26175,27.562105 166.274975,25.6187058 166.274975,24.8387614 C166.274975,21.9962971 168.681131,20 172.329989,20 C174.577451,20 175.939173,20.9783118 176.507626,21.6525605"
+                      id="Icon-contact"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </ion-col>
+          <ion-col col-10>
+            <ion-list>
+              <ion-item class="item_active">
+                <ion-input
+                  type="text"
+                  #nameInputToFocus
+                  placeholder="Name"
+                  name="first_name"
+                  [(ngModel)]="contactData.first_name"
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input
+                  type="text"
+                  placeholder="Last Name"
+                  name="last_name"
+                  [(ngModel)]="contactData.last_name"
+                ></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="in_item">
+        <div class="in_image">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="20px"
+            height="20px"
+            viewBox="0 0 20 20"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+            <title>email-icon</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Assets"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              transform="translate(-47.000000, -3948.000000)"
+              opacity="0.300000012"
+            >
+              <g
+                id="Contact-creation"
+                transform="translate(0.000000, 3735.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M65.5448235,218.021484 C66.4560452,218.566462 66.9383982,219.147095 66.9383982,220.165466 L66.9383982,226.038317 L66.9383982,231.313792 C66.9383982,232.201846 66.2184887,232.921665 65.3304344,232.921665 L57.5542353,232.921665 L57.3888054,232.921665 L48.6079005,232.921665 C47.7199367,232.921665 46.9999367,232.201846 46.9999367,231.313792 L46.9999367,226.038317 L46.9999367,225.993068 L46.9999367,222.916145 L46.9999367,220.339584 C46.9999367,219.294516 47.62419,218.520851 48.6436471,217.900941 C49.6352308,217.297955 55.2004796,213.94809 55.7543258,213.608633 C56.0547783,213.424471 56.5136018,213.090534 57.0138733,213.090534 C57.4738733,213.090534 57.8428326,213.352072 58.0768597,213.492525 C58.3895294,213.680127 64.6980362,217.515059 65.5448235,218.021484 Z M58.1349593,225.105376 C58.4469955,224.914697 66.0496199,220.245828 66.0496199,220.245828 C66.0496199,219.602661 65.647629,219.09343 65.0580362,218.704833 C64.4684434,218.316235 58.1581267,214.532706 57.76419,214.278588 C57.2104344,213.921303 56.8173122,213.974878 56.3215656,214.269629 C55.9284434,214.503385 49.6084434,218.329719 49.1126063,218.651258 C48.6168597,218.972887 48.0138733,219.450805 48.0138733,220.165466 C48.8580362,220.741575 55.4504344,224.813158 55.8570407,225.056235 C56.267991,225.301846 56.6029231,225.552072 57.0317014,225.552072 C57.4917919,225.552072 57.8133303,225.301846 58.1349593,225.105376 Z M65.3691674,231.121484 C65.4534208,230.922661 65.3646425,230.69171 65.1795747,230.580308 L58.5481719,226.587095 C58.3204796,226.449991 58.0167692,226.549086 57.9216561,226.81352 C57.8517919,227.007548 57.9427421,227.223566 58.1193032,227.3299 L64.7519729,231.323837 C64.8212036,231.365466 64.8974027,231.385466 64.9727873,231.385466 C65.1374027,231.385466 65.2974932,231.290534 65.3691674,231.121484 Z M55.8191222,227.3299 C55.9956833,227.223566 56.0866335,227.007548 56.0167692,226.81352 C55.9215656,226.549086 55.6179457,226.449991 55.3901629,226.587095 L48.7588507,230.580308 C48.5737828,230.69171 48.4850045,230.922661 48.5692579,231.121484 C48.6409321,231.290534 48.8010226,231.385466 48.965638,231.385466 C49.0409321,231.385466 49.1172217,231.365466 49.1864525,231.323837 L55.8191222,227.3299 Z M57.8298824,218.675158 L57.8899729,218.340679 L58.6360362,218.349276 L58.3187511,219.978688 C58.2844525,220.155973 58.2672579,220.281765 58.2672579,220.356063 C58.2672579,220.53905 58.3330498,220.630452 58.464543,220.630452 C58.6017376,220.630452 58.7331403,220.53905 58.8590226,220.356063 C59.0704253,220.047195 59.1763077,219.684299 59.1763077,219.266923 C59.1763077,218.723846 58.9889774,218.279321 58.6145882,217.933348 C58.2401086,217.587466 57.7583891,217.414615 57.1697014,217.414615 C56.5121448,217.414615 55.9604706,217.640498 55.5145882,218.092081 C55.0686154,218.543756 54.845629,219.101131 54.845629,219.764299 C54.845629,220.24457 54.9727783,220.67914 55.2272579,221.067828 C55.4815566,221.456606 55.8088869,221.719502 56.2091584,221.856787 C56.483638,221.948281 56.803638,221.993982 57.1697014,221.993982 C57.7126878,221.993982 58.2330498,221.905385 58.7304253,221.72819 L58.9019186,222.397059 C58.3987511,222.574163 57.8156742,222.662851 57.1525068,222.662851 C56.2719638,222.662851 55.5601991,222.405566 55.0171222,221.890995 C54.4168507,221.325113 54.1166697,220.610452 54.1166697,219.747104 C54.1166697,218.906742 54.4082534,218.196425 54.9914208,217.616063 C55.5745882,217.035882 56.2863529,216.745656 57.1267149,216.745656 C57.904181,216.745656 58.5503348,216.984389 59.0648145,217.461765 C59.5793846,217.93914 59.8366697,218.54095 59.8366697,219.266923 C59.8366697,219.787195 59.6936833,220.247466 59.4078914,220.647647 C59.1219186,221.047738 58.7960362,221.247828 58.4302443,221.247828 C58.0700633,221.247828 57.8470769,221.090724 57.7613756,220.776244 C57.5097014,221.136335 57.1553122,221.316516 56.6980271,221.316516 C56.3549502,221.316516 56.0676199,221.187828 55.8361267,220.930543 C55.604543,220.673348 55.4887964,220.353258 55.4887964,219.97009 C55.4887964,219.512805 55.6388416,219.112534 55.9390226,218.769457 C56.2391131,218.426561 56.5892489,218.254977 56.9895204,218.254977 C57.3725068,218.254977 57.6526878,218.395068 57.8298824,218.675158 Z M57.6412851,219.635611 L57.6412851,219.601403 C57.6412851,219.435611 57.5884344,219.299955 57.4826425,219.193982 C57.3768507,219.088281 57.2468054,219.035339 57.0924163,219.035339 C56.8923258,219.035339 56.7164887,219.124027 56.5649955,219.301131 C56.4135023,219.478507 56.3377557,219.69009 56.3377557,219.935701 C56.3377557,220.118869 56.3906063,220.267376 56.4963982,220.381674 C56.60219,220.496154 56.7378462,220.553258 56.903819,220.553258 C57.1039095,220.553258 57.2768507,220.461855 57.422552,220.278778 C57.5683439,220.095882 57.6412851,219.881493 57.6412851,219.635611 Z"
+                  id="email-icon"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <ion-item [ngClass]="contactData.email.email_id ?'item_active':''">
+          <ion-input
+            name="email"
+            type="email"
+            placeholder="Email address"
+            [(ngModel)]="contactData.email.email_id"
+            readonly
+          ></ion-input>
+        </ion-item>
+      </div>
+      <div class="in_item">
+        <div class="in_image">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="20px"
+            height="20px"
+            viewBox="0 0 20 20"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+            <title>Call icon</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Contact-info---Edit-Info---iPhone-8"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              transform="translate(-45.000000, -431.000000)"
+              fill-opacity="0.3"
+            >
+              <g
+                id="Phone-number"
+                transform="translate(25.000000, 415.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M25.39407,23.5528326 C25.7955744,23.0967521 26.2762739,22.5163447 26.6036871,22.0681039 C26.8117549,21.7833879 26.8654306,21.4025676 26.7457448,21.0632511 C26.335734,19.9014219 25.4741156,17.705595 24.9755526,16.6164434 C24.8304326,16.2994468 24.5447009,16.0858406 24.2197545,16.0530988 C23.4721227,15.9776541 22.7596224,15.9658486 22.3342149,16.1299269 C21.8887321,16.3016603 20.2405224,17.6510867 20.0308384,20.0691894 C19.7404282,23.4181758 21.5092594,26.5381537 24.9940116,30.5454824 C28.2211886,34.2566585 32.4386864,35.7263536 35.1842282,35.9839538 C36.9744956,36.1519058 38.9330206,34.9821447 39.7249711,33.3792685 C39.9212149,32.9820312 39.9441823,32.2183616 39.995136,31.6762299 C40.0338403,31.265158 39.8389576,30.8692119 39.5033781,30.6731296 C38.5511661,30.1167022 36.696675,29.0978304 35.689171,28.5533007 C35.3113996,28.3490099 34.8550286,28.4393037 34.5698924,28.7770522 C34.0658852,29.3738767 33.4560578,30.2007243 33.0287788,30.7663747 C32.7615913,31.1200792 32.3100689,31.243576 31.9235358,31.0606827 C29.0617959,29.706737 26.6350759,27.373302 25.2611992,24.7845727 C25.0496438,24.3858596 25.1011078,23.8856007 25.39407,23.5528326"
+                  id="Call-icon"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <ion-item [ngClass]="contactData.phone.phone_no ?'item_active':''">
+          <ion-input
+            name="phone"
+            type="tel"
+            placeholder="Phone Number"
+            [(ngModel)]="contactData.phone.phone_no"
+          ></ion-input>
+        </ion-item>
+      </div>
+      <div class="in_item">
+        <div class="in_image">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="12px"
+            height="25px"
+            viewBox="0 0 12 25"
+            version="1.1"
+          >
+            <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+            <title>Icon company</title>
+            <desc>Created with Sketch.</desc>
+            <defs />
+            <g
+              id="Create-contact---iPhone-8"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+              transform="translate(-182.000000, -406.000000)"
+              opacity="0.3"
+            >
+              <g
+                id="New-company"
+                transform="translate(15.000000, 386.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M176.029343,31.1335179 L169.571762,31.1335179 C169.438208,31.1335179 169.329905,31.0252143 169.329905,30.8916609 L169.329905,30.0209758 C169.329905,29.887374 169.438208,29.7791189 169.571762,29.7791189 L176.029343,29.7791189 C176.162896,29.7791189 176.2712,29.887374 176.2712,30.0209758 L176.2712,30.8916609 C176.2712,31.0252143 176.162896,31.1335179 176.029343,31.1335179 M176.029343,33.7455731 L169.571762,33.7455731 C169.438208,33.7455731 169.329905,33.6372695 169.329905,33.5037161 L169.329905,32.6814024 C169.329905,32.5478006 169.438208,32.4395455 169.571762,32.4395455 L176.029343,32.4395455 C176.162896,32.4395455 176.2712,32.5478006 176.2712,32.6814024 L176.2712,33.5037161 C176.2712,33.6372695 176.162896,33.7455731 176.029343,33.7455731 M176.029343,36.6478567 L169.571762,36.6478567 C169.438208,36.6478567 169.329905,36.5395531 169.329905,36.4059997 L169.329905,35.3902005 C169.329905,35.2565987 169.438208,35.1483435 169.571762,35.1483435 L176.029343,35.1483435 C176.162896,35.1483435 176.2712,35.2565987 176.2712,35.3902005 L176.2712,36.4059997 C176.2712,36.5395531 176.162896,36.6478567 176.029343,36.6478567 M176.029343,39.5501403 L169.571762,39.5501403 C169.438208,39.5501403 169.329905,39.4418367 169.329905,39.3082833 L169.329905,38.292484 C169.329905,38.1588822 169.438208,38.0506271 169.571762,38.0506271 L176.029343,38.0506271 C176.162896,38.0506271 176.2712,38.1588822 176.2712,38.292484 L176.2712,39.3082833 C176.2712,39.4418367 176.162896,39.5501403 176.029343,39.5501403 M178.093205,27.4733997 L176.585614,27.4733997 L176.585614,26.6833497 C176.585614,26.4161945 176.369055,26.1996358 176.1019,26.1996358 L174.674944,26.1996358 L174.674944,25.0145366 C174.674944,24.7473814 174.458385,24.5308227 174.19123,24.5308227 L173.38812,24.5308227 L173.086718,20.2543078 C173.06287,19.9162402 172.56687,19.9147407 172.54104,20.25276 L172.214388,24.5308227 L171.409875,24.5308227 C171.14272,24.5308227 170.926161,24.7473814 170.926161,25.0145366 L170.926161,26.1996358 L169.475019,26.1996358 C169.207864,26.1996358 168.991305,26.4161945 168.991305,26.6833497 L168.991305,27.4733997 L167.483714,27.4733997 C167.216607,27.4733997 167,27.6900068 167,27.9571136 L167,44.5162861 C167,44.7833929 167.216607,45 167.483714,45 L171.748475,45 L171.748475,41.9687099 C171.748475,41.8351081 171.856778,41.7268529 171.990332,41.7268529 L173.610773,41.7268529 C173.744327,41.7268529 173.85263,41.8351081 173.85263,41.9687099 L173.85263,45 L178.093205,45 C178.360312,45 178.576919,44.7833929 178.576919,44.5162861 L178.576919,27.9571136 C178.576919,27.6900068 178.360312,27.4733997 178.093205,27.4733997"
+                  id="Icon-company"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <!-- <ion-item [ngClass]="contactData.company_name ?'item_active':''">
+                    <ion-input name="company_name" type="text" placeholder="Company Name" [(ngModel)]="contactData.company_name"></ion-input>
+                </ion-item> -->
+        <ion-auto-complete
+          name="company_name"
+          [(ngModel)]="contactData.company_name"
+          (itemSelected)="getSelection($event)"
+          [options]="{placeholder:'Company name'}"
+          #searchbar
+          [dataProvider]="autosuggest"
+        ></ion-auto-complete>
+      </div>
+
+      <!-- Evol Tech commented 28/03/19 start -->
+      <!-- <div class="in_item"  *ngIf="editAddress == false">
+                <div class="in_image i_textar_im">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                        version="1.1"> -->
+      <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+      <!--              <title>Icon location</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs/>
+                        <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                            opacity="0.3">
+                            <g id="Address" transform="translate(25.000000, 480.000000)" fill="#000000">
+                                <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                                    id="Icon-location" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <ion-item class="item_active i_textar" *ngIf="showContact">
+                    {{contactData.address.address_lines}} {{contactData.address.city}}
+                    <br>{{contactData.address.province_state}} {{contactData.address.postal_code}}
+                    <br>{{contactData.address.country.country_name}}
+                </ion-item>
+                <ion-item class="i_textar" *ngIf="!showContact">
+                    <ion-textarea  name="address" placeholder="Address"></ion-textarea>
+                </ion-item>
+            </div> -->
+      <!-- Evol Tech commented 28/03/19 end -->
+      <!-- Evol Tech commented 28/03/19 start -->
+      <!-- <div class="in_item" class="in_item bg_white edit_note_cs_filed edit_note_cs_text_ar" *ngIf="editAddress == true" (clickOutside)="onClickedOutsideAddress($event)">
+                <ion-row>
+                    <ion-col col-2>
+                        <div class="in_image i_textar_im">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                                version="1.1"> -->
+      <!-- ****Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch**** -->
+      <!--               <title>Icon location</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs/>
+                                <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="#00a6db" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                                    opacity="0.3">
+                                    <g id="Address" transform="translate(25.000000, 480.000000)" fill="#00a6db">
+                                        <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                                            id="Icon-location" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </ion-col>
+                    <ion-col col-10>
+                        <ion-list>
+                            <ion-item class="item_active i_textar">
+                                <ion-input #addressInputToFocus name="street" type="text" placeholder="Street" [(ngModel)]="contactData.address.address_lines"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-input name="city" type="text" placeholder="City" [(ngModel)]="contactData.address.City"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-input name="state_province" type="text" placeholder="State/Province" [(ngModel)]="contactData.address.province_state"></ion-input>
+                                <ion-input name="postal_code" type="text" placeholder="Zip" [(ngModel)]="contactData.address.postal_code"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-select placeholder="country" [(ngModel)]="contactData.address.country">
+                                    <ion-option value="">Country</ion-option>
+                                    <ion-option *ngFor="let top_country of countries.top_countries" value="{{top_country.id_country}}">{{top_country.country_name}}</ion-option>
+                                    <ion-option *ngFor="let all_country of countries.all_countries" value="{{all_country.id_country}}">{{all_country.country_name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+            </div> -->
+      <!-- Evol Tech commented 28/03/19 end -->
+      <!-- <div class="in_item"  *ngIf="editAddress == false">
+                <div class="in_image i_textar_im">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                        version="1.1">
+                        
+                        <title>Icon location</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs/>
+                        <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                            opacity="0.3">
+                            <g id="Address" transform="translate(25.000000, 480.000000)" fill="#000000">
+                                <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                                    id="Icon-location" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <ion-item class="item_active i_textar" *ngIf="showContact">
+                    {{contactData.address.address_lines}} {{contactData.address.city}}
+                    <br>{{contactData.address.province_state}} {{contactData.address.postal_code}}
+                    <br>{{contactData.address.country.country_name}}
+                </ion-item>
+                <ion-item class="i_textar" *ngIf="!showContact">
+                    <ion-textarea  name="address" placeholder="Address"></ion-textarea>
+                </ion-item>
+            </div> -->
+      <!-- edited by evoltech 18th dec 2018 -->
+      <!--    <div class="in_item" (click)="editContactAddress()" *ngIf="editAddress == false">
+              <div class="in_image i_textar_im">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                  version="1.1">
+                  
+                  <title>Icon location</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs/>
+                  <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                    opacity="0.3">
+                    <g id="Address" transform="translate(25.000000, 480.000000)" fill="#000000">
+                      <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                        id="Icon-location" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <ion-item [ngClass]="contactData.address.address_lines != '' || contactData.address.city != '' || contactData.address.province_state != '' || contactData.address.postal_code != '' ?'item_active i_textar':'i_textar'">
+                <p *ngIf="contactData.address.address_lines != '' || contactData.address.city != '' || contactData.address.province_state != '' || contactData.address.postal_code != '';else elseTemplate">
+                {{contactData.address.address_lines}} {{contactData.address.city}}
+                <br *ngIf="(contactData.address.address_lines != '' && contactData.address.address_lines != null) || (contactData.address.city != '' && contactData.address.city != null)"> {{contactData.address.province_state}} {{contactData.address.postal_code}}
+                <br *ngIf="(contactData.address.province_state != '' && contactData.address.province_state != null) || (contactData.address.postal_code != '' && contactData.address.postal_code != null)"> 
+                {{contactData.address.country.country_name}}
+                </p>
+                <ng-template #elseTemplate>
+                  <p>Address</p>
+                </ng-template>
+              </ion-item>
+            </div> -->
+      <!-- <div class="in_item bg_white edit_note_cs_filed edit_note_cs_text_ar" *ngIf="editAddress == true" (clickOutside)="onClickedOutsideAddress($event)">
+                <ion-row>
+                    <ion-col col-2>
+                        <div class="in_image i_textar_im">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                                version="1.1">
+                               
+                                <title>Icon location</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs/>
+                                <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="#00a6db" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                                    opacity="0.3">
+                                    <g id="Address" transform="translate(25.000000, 480.000000)" fill="#00a6db">
+                                        <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                                            id="Icon-location" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </ion-col>
+                    <ion-col col-10>
+                        <ion-list>
+                            <ion-item class="item_active i_textar">
+                                <ion-input #addressInputToFocus name="street" type="text" placeholder="Street" [(ngModel)]="contactData.address.address_lines"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-input name="city" type="text" placeholder="City" [(ngModel)]="contactData.address.City"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-input name="state_province" type="text" placeholder="State/Province" [(ngModel)]="contactData.address.province_state"></ion-input>
+                                <ion-input name="postal_code" type="text" placeholder="Zip" [(ngModel)]="contactData.address.postal_code"></ion-input>
+                            </ion-item>
+                            <ion-item class="item_active i_textar">
+                                <ion-select [(ngModel)]="contactData.address.country">
+                                    <ion-option value="">Country</ion-option>
+                                    <ion-option *ngFor="let top_country of countries.top_countries" value="{{top_country.id_country}}">{{top_country.country_name}}</ion-option>
+                                    <ion-option *ngFor="let all_country of countries.all_countries" value="{{all_country.id_country}}">{{all_country.country_name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+            </div> -->
+      <!--   <div class="in_item bg_white edit_note_cs_filed edit_note_cs_text_ar" *ngIf="editAddress == true" (clickOutside)="onClickedOutsideAddress($event)">
+              <ion-row>
+                <ion-col col-2 class="grid_sp_2_pad">
+                  <div class="in_image i_textar_im">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                      version="1.1">
+                    
+                      <title>Icon location</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs/>
+                      <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="#00a6db" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                        opacity="0.3">
+                        <g id="Address" transform="translate(25.000000, 480.000000)" fill="#00a6db">
+                          <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                            id="Icon-location" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </ion-col>
+                <ion-col col-10 class="grid_sp_10_pad">
+                  <ion-list>
+                    <ion-item class="item_active i_textar">
+                      <ion-input #addressInputToFocus placeholder="Street" name="street" [(ngModel)]="contactData.address.address_lines"></ion-input>
+                    </ion-item>
+                    <ion-item class="item_active i_textar">
+                      <ion-input placeholder="City" name="city" [(ngModel)]="contactData.address.city"></ion-input>
+                    </ion-item>
+                    <ion-item class="item_active i_textar">
+                      <ion-input placeholder="State/Province" name="state_province" [(ngModel)]="contactData.address.province_state"></ion-input>
+                      <ion-input type="tel" placeholder="Zip" name="zip" [(ngModel)]="contactData.address.postal_code" class="input_zip"></ion-input>
+                    </ion-item>
+                    <ion-item class="item_active i_textar">
+                        <select class="select_country" [(ngModel)]="contactData.address.country" name="country" (input)="onSelect(contactData.address.country)">
+                            <option value="0">Country</option>
+                            <option *ngFor="let top_country of countries.top_countries" value="{{top_country.id_country}}">{{top_country.country_name}}</option>
+                            <option *ngFor="let all_country of countries.all_countries" value="{{all_country.id_country}}">{{all_country.country_name}}</option>
+                        </select>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+            </div> -->
+      <!-- <div class="in_item" (click)="editContactAddress()" *ngIf="editAddress == false">
+          <div class="in_image i_textar_im">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+              version="1.1">
+              
+              <title>Icon location</title>
+              <desc>Created with Sketch.</desc>
+              <defs/>
+              <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                opacity="0.3">
+                <g id="Address" transform="translate(25.000000, 480.000000)" fill="#000000">
+                  <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                    id="Icon-location" />
+                </g>
+              </g>
+            </svg>
+          </div>
+        
+            <ion-item class="item_active">
+                {{contactData.address.address_lines}} {{contactData.address.city}}
+                {{contactData.address.province_state}} {{contactData.address.postal_code}}
+                
+            </ion-item>
+        </div> -->
+      <!-- <div class="in_item bg_white edit_note_cs_filed edit_note_cs_text_ar" *ngIf="editAddress == true" (clickOutside)="onClickedOutsideAddress($event)">
+          <ion-row>
+            <ion-col col-2 class="grid_sp_2_pad">
+              <div class="in_image i_textar_im">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="20px" viewBox="0 0 14 20"
+                  version="1.1">
+                  
+                  <title>Icon location</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs/>
+                  <g id="Contact-info---Edit-Info---iPhone-8" stroke="none" stroke-width="1" fill="#00a6db" fill-rule="evenodd" transform="translate(-48.000000, -518.000000)"
+                    opacity="0.3">
+                    <g id="Address" transform="translate(25.000000, 480.000000)" fill="#00a6db">
+                      <path d="M29.7273066,48.0558613 C27.8889854,48.0558613 26.3986934,46.5655693 26.3986934,44.7272482 C26.3986934,42.889 27.8889854,41.398781 29.7273066,41.398781 C31.5655547,41.398781 33.0558467,42.889 33.0558467,44.7272482 C33.0558467,46.5655693 31.5655547,48.0558613 29.7273066,48.0558613 M29.7273066,38.0000219 C26.0119051,38.0000219 23.0000073,41.0119927 23.0000073,44.7272482 C23.0000073,49.549438 25.432854,54.8671022 29.7273066,57.9717737 C34.1295693,54.6872482 36.4546058,49.849292 36.4546058,44.7272482 C36.4546058,41.0119927 33.442635,38.0000219 29.7273066,38.0000219"
+                        id="Icon-location" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </ion-col>
+            <ion-col col-10 class="grid_sp_10_pad">
+              <ion-list>
+                <ion-item class="item_active i_textar">
+                  <ion-input #addressInputToFocus placeholder="Street" name="street" [(ngModel)]="contactData.address.address_lines"></ion-input>
+                </ion-item>
+                <ion-item class="item_active i_textar">
+                  <ion-input placeholder="City" name="city" [(ngModel)]="contactData.address.city"></ion-input>
+                </ion-item>
+                <ion-item class="item_active i_textar">
+                  <ion-input placeholder="State/Province" name="state_province" [(ngModel)]="contactData.address.province_state"></ion-input>
+                  <ion-input type="tel" placeholder="Zip" name="zip" [(ngModel)]="contactData.address.postal_code" class="input_zip"></ion-input>
+                </ion-item>
+                <ion-item class="item_active i_textar">
+                  <select class="select_country" [(ngModel)]="contactData.address.country" name="country" (input)="onSelect(contactData.address.country)">
+                    <option value="0">Country</option>
+                    <option *ngFor="let top_country of countries.top_countries" value="{{top_country.id_country}}">{{top_country.country_name}}</option>
+                    <option *ngFor="let all_country of countries.all_countries" value="{{all_country.id_country}}">{{all_country.country_name}}</option>
+                  </select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </div> -->
+    </div>
+  </div>
+  <ul class="social_ar">
+    <li *ngFor="let social of contactData.social">
+      <a href="{{social.contact_information}}">
+        <img src="assets/imgs/{{social.network_name}}.png" class="img_thumb" />
+      </a>
+    </li>
+  </ul>
+
+  <button
+    *ngIf="!showloader"
+    ion-button
+    color="secondary"
+    class="a_new_con_btn"
+    (click)="openContact()"
+  >
+    OPEN CONTACT
+  </button>
+</ion-content>
+
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

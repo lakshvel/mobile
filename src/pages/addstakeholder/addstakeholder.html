@@ -1,0 +1,146 @@
+<ion-header class="bg_grey n_contact n_ad_con stcak_hld_hdr">
+  <ion-navbar>
+    <ion-grid>
+
+      <ion-row>
+        <ion-col col-1 class="p_right nw_con_icon">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="20px" viewBox="0 0 19 20"
+            version="1.1">
+            <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+            <title>creation__contact-icon—default</title>
+            <desc>Created with Sketch.</desc>
+            <defs/>
+            <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-26.000000, -997.000000)"
+              opacity="0.3">
+              <g id="Create-Deal" transform="translate(0.000000, 823.000000)" fill="#000000">
+                <path d="M38.4061006,175.322048 C39.114773,175.322048 40.2992868,176.284471 40.2992868,177.511383 C40.2992868,178.75168 40.1089342,179.774695 40.1300934,180.546765 C40.4631903,180.467498 40.8492653,180.694879 40.8492653,181.477528 C40.8492653,182.712295 40.1485275,183.783158 39.795634,183.783158 C39.6607442,183.783158 39.6092087,183.745489 39.5457312,183.660852 C39.4822536,183.946421 38.8926016,185.480702 38.1734297,186.252772 L38.1734297,187.781042 C39.0195567,188.024293 41.9486614,188.741862 42.6102066,188.87571 C44.4399152,189.245915 44.5087627,190.684259 44.5087627,192.550996 C42.4568826,193.534578 38.6176924,194 35.3178211,194 C32.0179497,194 28.7657667,193.693272 26.0000045,192.603894 C26.0000045,190.869322 25.9850167,189.374393 27.6879305,188.946 C29.0486907,188.603686 32.3246778,187.791622 32.3246778,187.791622 C32.3352574,187.506053 32.3246778,186.258062 32.3246778,186.258062 C31.4256528,185.496572 31.0449477,184.036989 30.9708906,183.698602 C30.9312171,183.754065 30.8309514,183.77867 30.7251555,183.77867 C30.4493647,183.77867 29.6382625,182.829953 29.6382625,181.541006 C29.6382625,180.795385 29.9820192,180.467498 30.3680942,180.546765 C30.2094003,180.049684 30.2199799,178.494965 30.2199799,177.871009 C30.2199799,175.597038 32.1449048,174 35.063991,174 C36.8619608,174 37.9513384,174.782649 38.4061006,175.322048"
+                  id="creation__contact-icon—default" />
+              </g>
+            </g>
+          </svg>
+        </ion-col>
+        <ion-col col-11 class="p_left">
+          <h6 class="add_com_tit">Add stakeholder</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <svg (click)="goBack()" class="close_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px"
+      height="22px" viewBox="0 0 22 22" version="1.1">
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs/>
+      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3849.000000)"
+        opacity="0.25">
+        <g id="Contact-creation" transform="translate(0.000000, 3765.000000)" fill="#000000">
+          <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </ion-navbar>
+</ion-header>
+<ion-content class="stack_hold">
+  <div class="new_cont_list" *ngIf="!showloader">
+    <div class="new_cont_list_in" *ngIf="!showLoader">
+      <div class="new_con_form cr_form_group">
+        <form (ngSubmit)="addStakeholder()">
+          <div [ngClass]="errorClass ? 'error_class in_item':showWhite?'in_item p_right':'in_item'">
+            <div class="p_right">
+              <!-- Add Stack Holder Page Design -->
+              <ion-row (click)="addCompanyName();" (clickOutside)="onClickedOutsideName($event)" [ngClass]="showWhite?'bg_white edit_note_cs_filed':''">
+                <ion-col col-2>
+                  <div class="in_image">
+                    <svg *ngIf="!showWhite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="20px"
+                      viewBox="0 0 19 20" version="1.1">
+                      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                      <title>creation__contact-icon—default</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs/>
+                      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-26.000000, -997.000000)"
+                        opacity="0.3">
+                        <g id="Create-Deal" transform="translate(0.000000, 823.000000)" fill="#000000">
+                          <path d="M38.4061006,175.322048 C39.114773,175.322048 40.2992868,176.284471 40.2992868,177.511383 C40.2992868,178.75168 40.1089342,179.774695 40.1300934,180.546765 C40.4631903,180.467498 40.8492653,180.694879 40.8492653,181.477528 C40.8492653,182.712295 40.1485275,183.783158 39.795634,183.783158 C39.6607442,183.783158 39.6092087,183.745489 39.5457312,183.660852 C39.4822536,183.946421 38.8926016,185.480702 38.1734297,186.252772 L38.1734297,187.781042 C39.0195567,188.024293 41.9486614,188.741862 42.6102066,188.87571 C44.4399152,189.245915 44.5087627,190.684259 44.5087627,192.550996 C42.4568826,193.534578 38.6176924,194 35.3178211,194 C32.0179497,194 28.7657667,193.693272 26.0000045,192.603894 C26.0000045,190.869322 25.9850167,189.374393 27.6879305,188.946 C29.0486907,188.603686 32.3246778,187.791622 32.3246778,187.791622 C32.3352574,187.506053 32.3246778,186.258062 32.3246778,186.258062 C31.4256528,185.496572 31.0449477,184.036989 30.9708906,183.698602 C30.9312171,183.754065 30.8309514,183.77867 30.7251555,183.77867 C30.4493647,183.77867 29.6382625,182.829953 29.6382625,181.541006 C29.6382625,180.795385 29.9820192,180.467498 30.3680942,180.546765 C30.2094003,180.049684 30.2199799,178.494965 30.2199799,177.871009 C30.2199799,175.597038 32.1449048,174 35.063991,174 C36.8619608,174 37.9513384,174.782649 38.4061006,175.322048"
+                            id="creation__contact-icon—default" />
+                        </g>
+                      </g>
+                    </svg>
+                    <svg *ngIf="showWhite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="20px"
+                      viewBox="0 0 19 20" version="1.1">
+                      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                      <title>creation__contact-icon—active</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                        <linearGradient x1="50%" y1="100%" x2="50%" y2="2.8260523%" id="linearGradient-1">
+                          <stop stop-color="#009CD7" offset="0%" />
+                          <stop stop-color="#00E1F3" offset="100%" />
+                        </linearGradient>
+                      </defs>
+                      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-26.000000, -1027.000000)">
+                        <g id="Create-Deal" transform="translate(0.000000, 823.000000)" fill="url(#linearGradient-1)">
+                          <path d="M38.4061006,205.322048 C39.114773,205.322048 40.2992868,206.284471 40.2992868,207.511383 C40.2992868,208.75168 40.1089342,209.774695 40.1300934,210.546765 C40.4631903,210.467498 40.8492653,210.694879 40.8492653,211.477528 C40.8492653,212.712295 40.1485275,213.783158 39.795634,213.783158 C39.6607442,213.783158 39.6092087,213.745489 39.5457312,213.660852 C39.4822536,213.946421 38.8926016,215.480702 38.1734297,216.252772 L38.1734297,217.781042 C39.0195567,218.024293 41.9486614,218.741862 42.6102066,218.87571 C44.4399152,219.245915 44.5087627,220.684259 44.5087627,222.550996 C42.4568826,223.534578 38.6176924,224 35.3178211,224 C32.0179497,224 28.7657667,223.693272 26.0000045,222.603894 C26.0000045,220.869322 25.9850167,219.374393 27.6879305,218.946 C29.0486907,218.603686 32.3246778,217.791622 32.3246778,217.791622 C32.3352574,217.506053 32.3246778,216.258062 32.3246778,216.258062 C31.4256528,215.496572 31.0449477,214.036989 30.9708906,213.698602 C30.9312171,213.754065 30.8309514,213.77867 30.7251555,213.77867 C30.4493647,213.77867 29.6382625,212.829953 29.6382625,211.541006 C29.6382625,210.795385 29.9820192,210.467498 30.3680942,210.546765 C30.2094003,210.049684 30.2199799,208.494965 30.2199799,207.871009 C30.2199799,205.597038 32.1449048,204 35.063991,204 C36.8619608,204 37.9513384,204.782649 38.4061006,205.322048"
+                            id="creation__contact-icon—active" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                  <!-- <div class="in_image stack_new_im" *ngIf="isContactSelected">
+                    <div *ngIf="selectedContact.picture_path==null" class="no_img bg_{{selectedContact.name | slice:0:1}}">
+                      <span>{{notificationNameNoimage}}</span>
+                    </div>
+                    <img *ngIf="selectedContact.picture_path !=null" src="{{selectedContact.picture_path}}" class="flag" />
+                  </div> -->
+                </ion-col>
+                <ion-col col-10>
+                  <div class="stack_input br_inpu_bot">
+
+
+                      <div class="stake_holder_rel_con" *ngIf="isContactSelected">
+                          <div *ngIf="selectedContact.picture_path==null" class="no_rel_con_img no_img bg_{{selectedContact.name | slice:0:1}}">
+                            <span>{{notificationNameNoimage}}</span>
+                          </div>
+                          <img *ngIf="selectedContact.picture_path !=null" src="{{selectedContact.picture_path}}" class="flag" />
+                        </div>
+
+
+                    <ng-template #withFlags let-attrs="attrs">
+                      <div *ngIf="attrs.data.picture_path!=null">
+                        <img src="{{attrs.data.picture_path}}" class="flag" />
+                        <span [innerHTML]="attrs.data.name | boldprefix:attrs.keyword"></span>
+                      </div>
+                      <div *ngIf="attrs.data.picture_path==null">
+                        <div class="bg_{{attrs.data.name | slice:0:1}} flag">
+                          <span>{{nameSpace(attrs.data.name)}}</span>
+                        </div>
+                        <span [innerHTML]="attrs.data.name | boldprefix:attrs.keyword"></span>
+                      </div>
+                    </ng-template>
+                    <ion-auto-complete [class.stake_auto_com]="isContactSelected" placeholder="Company name" #nameInputToFocus (ionFocus)="focusFunction()" (focusout)="focusOutFunction()"
+                      (itemSelected)="getSelection($event)" name="stkhlr_name" [(ngModel)]="stakeholderName.name" [template]="withFlags"
+                      #searchbar [dataProvider]="autosuggest" [options]="{ placeholder : 'Contact name' }"></ion-auto-complete>
+                  </div>
+                  <ion-item class="stack_input">
+                    <ion-select name="role" class="ad_sthl" [(ngModel)]="ChooseRole">
+                      <ion-option value="">Choose Role</ion-option>
+                      <ion-option *ngFor="let optv of stakeholderList" value="{{optv.id_stakeholder}}">{{optv.stakeholder_name}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+          <button ion-button color="secondary" class="a_new_con_btn" type="submit">ADD STAKEHOLDERS</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

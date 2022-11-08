@@ -1,0 +1,49 @@
+<ion-header class="add_modal_cont">
+  <div class="svg_cls" text-center>
+    <img (click)="goBack()" class="close_btn" src="assets/imgs/popup-close-btn.png">
+  </div>
+
+</ion-header>
+<ion-footer class="add_modal_cont">
+  <form (ngSubmit)="saveNote()">
+    <div class="call_ouetr">
+      <div class="call_opt">
+        <ion-grid>
+          <ion-row center text-center class="note_togle">
+            <div class="note_togle_tag">
+              <div class="icon_lock" *ngIf="!addNote.toggleSet">
+
+              </div>
+              <div class="icon_lock_change" *ngIf="addNote.toggleSet">
+
+              </div>
+              <div class="note_cus_tog">
+                <ion-toggle [(ngModel)]="addNote.toggleSet" name="toggleSet" (ngModelChange)="doSomething(addNote.toggleSet)"></ion-toggle>
+                <p *ngIf="showSharedLabel" class="note_shared">Shared</p>
+                <p *ngIf="shpwPrivateLabel" class="note_private">Private</p>
+              </div>
+            </div>
+          </ion-row>
+          <ion-row>
+            <div class="sh_input">
+              <ion-input #noteInput type="text" (focusout)="focusOutFunction()" class="dialog input" [(ngModel)]="addNote.noteDes" name="noteDes"></ion-input>
+            </div>
+            <div class="save_btn">
+              <button ion-button type="submit">SAVE</button>
+              <div class="ad_note_save">
+                <img src="assets/imgs/save-note.png" />
+              </div>
+            </div>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </form>
+</ion-footer>
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

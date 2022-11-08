@@ -1,0 +1,14 @@
+page-editdealvalue {
+    .hide_div{
+        display: none;
+    }
+    .hide_div_datetime .cdk-overlay-container{
+        display: none;
+    }
+    .cdk-overlay-container{
+        display: block;
+    }
+    .left_padd{
+    	padding-left:40px;
+    }
+}

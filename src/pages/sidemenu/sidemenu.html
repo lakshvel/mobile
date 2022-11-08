@@ -1,0 +1,130 @@
+<ion-menu id="myMenu" [content]="content" class="i_menu">
+  <ion-content class="menu_bg">
+    <ion-list text-center *ngIf="!showloader">
+      <div *ngIf="showsupport==false" class="menu_lst">
+        <div *ngFor="let p of pages">
+          <button menuClose ion-item [ngClass]="selectedItem==p.title?'active':''" (click)="openPage(p)">
+            {{p.title}}
+          </button>
+
+        </div>
+      </div>
+      <div *ngIf="showsupport" class="imenu_profile">
+        <div class="cls_crs" text-right>
+          <div bottom (click)="closemenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35px" height="35px" viewBox="0 0 35 35" version="1.1">
+              <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+              <title>nav__cross-btn</title>
+              <desc>Created with Sketch.</desc>
+              <defs/>
+              <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-50.000000, -1046.000000)" opacity="0.6">
+                  <g id="Nav" transform="translate(0.000000, 981.000000)" fill="#001A8B">
+                      <g id="Cross-icon" transform="translate(34.000000, 50.000000)">
+                          <path d="M32.4730881,31.5269119 L32.4730881,9.52691193 L34.4730881,9.52691193 L34.4730881,31.5269119 L56.4730881,31.5269119 L56.4730881,33.5269119 L34.4730881,33.5269119 L34.4730881,55.5269119 L32.4730881,55.5269119 L32.4730881,33.5269119 L10.4730881,33.5269119 L10.4730881,31.5269119 L32.4730881,31.5269119 Z" id="nav__cross-btn" transform="translate(33.473088, 32.526912) rotate(45.000000) translate(-33.473088, -32.526912) "/>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+        </div>
+        </div>
+        <div class="spt_io" (click)="inercomSupport()">
+          <div class="sp_img">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68px" height="68px" viewBox="0 0 68 68" version="1.1">
+              <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+              <title>Page 1</title>
+              <desc>Created with Sketch.</desc>
+              <defs>
+                  <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+                      <stop stop-color="#F2F2F2" offset="0%"/>
+                      <stop stop-color="#E5E5E5" offset="100%"/>
+                  </linearGradient>
+                  <path d="M-2.82051283e-05,65.7195166 C4.15656154,65.7193736 11.5259974,65.8075609 17.0025872,61.6043438 C21.7416128,64.2246843 27.1950744,65.7193736 32.9999718,65.7193736 C51.2252795,65.7193736 65.9999718,51.0075523 65.9999718,32.8597991 C65.9999718,14.712046 51.2252795,0.000224680851 32.9999718,0.000224680851 C14.7746641,0.000224680851 -2.82051283e-05,14.712046 -2.82051283e-05,32.8597991 C-2.82051283e-05,42.0413821 3.78340769,50.3419353 9.88079231,56.3041226 C8.87048462,60.0352289 5.44215128,63.278497 -2.82051283e-05,65.7195166 Z" id="path-2"/>
+                  <path d="M36.2802282,48.6054332 C36.2802282,50.4568034 34.7729462,51.9576715 32.9136641,51.9576715 L32.5365615,51.9576715 C30.6772795,51.9576715 29.1699974,50.4568034 29.1699974,48.6054332 L29.1699974,48.5377481 C29.1699974,46.6863779 30.6772795,45.1855098 32.5365615,45.1855098 L32.9136641,45.1855098 C34.7729462,45.1855098 36.2802282,46.6863779 36.2802282,48.5377481 L36.2802282,48.6054332 Z M40.5050744,32.8210417 L38.4441256,35.1301991 C36.6409718,37.1309821 35.9197667,38.4136289 35.9197667,41.0297566 L35.9197667,41.7992885 L29.530741,41.7992885 L29.530741,39.7987864 C29.530741,36.3611694 30.4067923,34.3603864 32.7252538,31.7439779 L34.6829718,29.5378928 C36.1256641,27.9474332 36.6409718,26.1519523 36.6409718,24.0994928 C36.6409718,21.4830843 35.4560744,19.7389991 33.1373308,19.7389991 C30.509741,19.7389991 29.4794077,22.0475949 29.4794077,25.3824204 L29.4794077,26.6647864 L22.6783051,26.6647864 L22.6783051,25.4849311 C22.6783051,19.3283949 26.0787154,14.9162247 32.8798179,14.9162247 C40.0929974,14.9162247 43.7512026,18.81528 43.7512026,24.8181906 C43.7512026,27.5885055 42.9783821,30.0510077 40.5050744,32.8210417 Z" id="path-3"/>
+                  <filter x="-3.6%" y="-2.0%" width="107.1%" height="104.0%" filterUnits="objectBoundingBox" id="filter-4">
+                      <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"/>
+                      <feOffset dx="0" dy="0.5" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+                      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+                      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowInnerInner1"/>
+                  </filter>
+              </defs>
+              <g id="How-to-log-out---iPhone-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-126.000000, -109.000000)">
+                  <g id="Page-1" transform="translate(127.000000, 110.000000)">
+                      <g id="Path">
+                          <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"/>
+                          <path stroke-opacity="0.3" stroke="#001A8B" stroke-width="0.5" d="M9.60026881,56.3790181 C3.33882941,50.202208 -0.250028205,41.8145477 -0.250028205,32.8597991 C-0.250028205,14.5737356 14.636831,-0.249775319 32.9999718,-0.249775319 C51.3631126,-0.249775319 66.2499718,14.5737356 66.2499718,32.8597991 C66.2499718,51.1458627 51.3631126,65.9693736 32.9999718,65.9693736 C27.3390497,65.9693736 21.8820952,64.5566849 17.0244556,61.901652 C15.1344185,63.3218946 12.9354651,64.3228804 10.4547494,64.974647 C7.36295358,65.7869648 4.76370944,65.971304 0.255244398,65.9695798 C0.126290313,65.9695303 0.126290313,65.9695303 -1.96028637e-05,65.9695166 L-1.16835226,65.9695568 L-0.102341805,65.4914116 C5.22561134,63.1016267 8.56804209,59.9570384 9.60026881,56.3790181 Z"/>
+                          <path stroke="#FFFFFF" stroke-width="0.5" d="M1.12641344,65.4673311 C5.06809535,65.4442036 7.49270397,65.2359058 10.3276948,64.4910593 C12.8047996,63.8402413 14.9877315,62.8355788 16.8503767,61.4060209 L16.9802675,61.3063313 L17.1235584,61.3855609 C21.9433703,64.0505703 27.368692,65.4693736 32.9999718,65.4693736 C51.0874464,65.4693736 65.7499718,50.8692419 65.7499718,32.8597991 C65.7499718,14.8503564 51.0874464,0.250224681 32.9999718,0.250224681 C14.9124972,0.250224681 0.249971795,14.8503564 0.249971795,32.8597991 C0.249971795,41.7287833 3.82398987,50.031962 10.0555762,56.1253753 L10.160433,56.2279071 L10.1221022,56.3694644 C9.15764883,59.9312288 6.05348996,63.0511193 1.12641344,65.4673311 Z"/>
+                      </g>
+                      <g id="Combined-Shape">
+                          <use fill="#A3A3A3" fill-rule="evenodd" xlink:href="#path-3"/>
+                          <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"/>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+          </div>
+          <p>Support</p>
+        </div>
+        <div class="md_pwr">
+          <div class="pwr_im" (click)="logout()">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26px" height="27px" viewBox="0 0 26 27" version="1.1">
+              <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+              <title>logout-icon</title>
+              <desc>Created with Sketch.</desc>
+              <defs>
+                  <path d="M26,15.5532223 C26,14.6951484 26.6713287,14 27.5,14 C28.3286713,14 29,14.6951484 29,15.5532223 L29,27.4467777 C29,28.3048516 28.3286713,29 27.5,29 C26.6713287,29 26,28.3048516 26,27.4467777 L26,15.5532223 Z M41,27.7914532 C41,35.0742104 35.1677713,41 28,41 C20.8322287,41 15,35.0742104 15,27.7914532 C15,23.6658342 16.8417564,19.8575705 20.051367,17.335143 C20.7245236,16.8043936 21.6938691,16.9302414 22.2108534,17.6141968 C22.7332229,18.2981522 22.6093621,19.283048 21.9362055,19.8083258 C19.4805302,21.7343442 18.0749793,24.6452584 18.0749793,27.7914532 C18.0749793,33.3506428 22.523198,37.8811634 27.9946147,37.8811634 C33.4660315,37.8811634 37.9196355,33.3561144 37.9196355,27.7969249 C37.9196355,24.6452584 36.5086993,21.7288725 34.0476388,19.8028541 C33.3744822,19.2721047 33.2506214,18.2926806 33.7676056,17.6087252 C34.2899751,16.9247698 35.2539354,16.798922 35.927092,17.3241997 C39.1528583,19.8466273 41,23.6603626 41,27.7914532 Z" id="path-1"/>
+                  <filter x="-2.9%" y="-2.8%" width="105.8%" height="105.6%" filterUnits="objectBoundingBox" id="filter-2">
+                      <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"/>
+                      <feOffset dx="0" dy="0.5" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+                      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+                      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowInnerInner1"/>
+                  </filter>
+              </defs>
+              <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-57.000000, -1251.000000)">
+                  <g id="Nav" transform="translate(0.000000, 981.000000)" fill-rule="nonzero">
+                      <g id="Log-out-icon" transform="translate(42.000000, 256.000000)">
+                          <g id="logout-icon">
+                              <use fill="#A3A3A3" fill-rule="evenodd" xlink:href="#path-1"/>
+                              <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"/>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+          </div>
+          <ion-label>Username</ion-label>
+          <p>{{userData.email_address}}</p>
+          <div class="pr_line_im">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+              viewBox="222 137.5 280 25" enable-background="new 222 137.5 280 25" xml:space="preserve">
+              <line fill="#096AB2" stroke="#096AB2" stroke-miterlimit="10" x1="243.8" y1="147.9" x2="484.1" y2="147.9" />
+              <g>
+                <g id="arrow-drop-down">
+                  <polygon fill="#096AB2" points="356.8,147.4 364.4,155.1 372,147.4   " />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <ion-avatar item-start (click)="secondMenu();" class="prf_img">
+        <div *ngIf="picture_path!='defaultUser'">
+          <img [src]="picture_path">
+        </div>
+        <div *ngIf="picture_path=='defaultUser'" class="no_pf_img no_img bg_{{userData.first_name | slice:0:1}}">
+          <span>{{userData.first_name | slice :0:1 }}{{userData.last_name | slice :0:1 }}</span>
+        </div>
+      </ion-avatar>
+    </ion-list>
+    <div class="bg_image" *ngIf="showloader"></div>
+  </ion-content>
+</ion-menu>
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" swipeBackEnabled="false" #content></ion-nav>
+<div center middle *ngIf="showloader" class="ldr_mask bg_image_side">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+    </div>
+  </div>
+</div>

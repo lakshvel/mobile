@@ -1,0 +1,65 @@
+
+<ion-header class="bg_grey n_contact">
+
+  <ion-navbar *ngIf="!dealWonOrLOst">
+    <ion-title class="cmn_tit ad_new_hd_con nw_cont_sp">Deal marked as lost</ion-title>
+    <svg (click)="goBack()" class="close_btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px"
+      height="22px" viewBox="0 0 22 22" version="1.1">
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs/>
+      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3849.000000)"
+        opacity="0.25">
+        <g id="Contact-creation" transform="translate(0.000000, 3765.000000)" fill="#000000">
+          <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!showloader" [ngClass]="!dealWonOrLOst ? 'dl_lst_mnd':''">
+    <div class="dl_wn_ch" *ngIf="dealWonOrLOst">
+      <div class="dl_wn_img" text-center>
+        <img class="img_wn" src="assets/imgs/Deal-won__congrats@2x.png">
+      </div>
+      <p text-center class="dl_wn_p">
+        {{dealDataName}} marked as won
+        <!-- Name of the deal marked as won -->
+      </p>
+      <div class="sub_cat_btn" (click)=goBack();>
+        <button type="button" class="cat_btn mark_close_btn">CLOSE</button>
+      </div>
+    </div>
+    <div class="dl_mark_lost edit_info_spc_ipad" *ngIf="!dealWonOrLOst">
+      <form (ngSubmit)="dealLostStatus()">
+        <div class="dl_ls_ip" item-height="50px">
+          <p>Reason the deal was lost:</p>
+          <ion-select name="reason" [(ngModel)]="optionsValue" class="cstm_in">
+            <ion-option value="" selected="selected">Select a reason</ion-option>
+            <ion-option *ngFor="let optv of lostReasonList" value="{{optv.id_reason}}">{{optv.name}}</ion-option>
+          </ion-select>
+        </div>
+        <div class="dl_ls_ip">
+          <p>Comment:</p>
+          <ion-input [(ngModel)]="name" name="comment" class="cm_ls" placeholder="Enter info about your lost deal" class="cstm_in"></ion-input>
+        </div>
+        <div class="sub_cat_btn">
+          <button ion-button class="cat_btn" type="submit">SAVE & CLOSE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

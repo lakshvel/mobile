@@ -1,0 +1,33 @@
+<ion-content class="bg_image login_page chs_act">
+    <div class="hm_logo">
+        <div class="logo_in" *ngIf="Loadershow==false">
+          <img  src="assets/imgs/UiPilot.svg" width="145" height="169" class="logo" />
+        </div>
+        <div class="logo_in ldr_shw" *ngIf="Loadershow">
+          <img src="assets/lodergif/Login-loader--dark-bgd-@2x.gif"  class="login_loader ldr_gif" />
+          <img src="assets/imgs/Upilot_Logo_Text.png" class="logo ldr_img" />
+        </div>
+    </div>
+  <div class="spc_padd">
+    <ion-row class="login_form">
+        <ion-col center text-center>
+          <span class="forgt_paswd">Choose an account:</span>
+        </ion-col>
+    </ion-row>
+    <ion-scroll scrollY class="scr_con_cac">
+    <ion-card class="act_list" *ngFor="let item of accounts">
+      <ion-card-content (click)="accountlogin(item);">
+          {{item.subdomain}}
+        </ion-card-content>
+      </ion-card>
+  </ion-scroll>
+    <ion-row text-right >
+        <ion-col class="ui_pading">
+            <span class="or">or</span>
+            <a class="cancel_cnt" (click)="go_back()">Cancel</a>
+        </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<div center middle class="ldr_mask" *ngIf="Loadershow">
+</div>

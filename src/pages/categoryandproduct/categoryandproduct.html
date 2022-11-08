@@ -1,0 +1,64 @@
+<ion-header class="dl_cat_hd" [ngClass]="showCategory ?'dl_cat_hd':'dl_cat_hd thr_grd_ly'">
+  <ion-icon (click)="closeProduct()" *ngIf="showProduct" name="ios-arrow-back" class="bck_arw_mdl"></ion-icon>
+  <p *ngIf="showCategory">Select a category</p>
+  <p *ngIf="showProduct">{{selectedCategory.name_category}}</p>
+  <div class="dl_pop_cl_btn" (click)="closeModal();">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="22px" viewBox="0 0 22 22"
+      version="1.1">
+      <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+      <title>cross-thick</title>
+      <desc>Created with Sketch.</desc>
+      <defs/>
+      <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-45.000000, -3819.000000)"
+        opacity="0.25">
+        <g id="Contact-creation" transform="translate(0.000000, 3735.000000)" fill="#000000">
+          <path d="M54.5918831,93.5918831 L54.5918831,81.5918831 L57.5918831,81.5918831 L57.5918831,93.5918831 L69.5918831,93.5918831 L69.5918831,96.5918831 L57.5918831,96.5918831 L57.5918831,108.591883 L54.5918831,108.591883 L54.5918831,96.5918831 L42.5918831,96.5918831 L42.5918831,93.5918831 L54.5918831,93.5918831 Z"
+            id="cross-thick" transform="translate(56.091883, 95.091883) rotate(45.000000) translate(-56.091883, -95.091883) "
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</ion-header>
+<ion-content class="">
+  <!--Slect  category page design start-->
+  <div class="sp_padd dl_cat_outer" *ngIf="showCategory">
+    <div class="dl_cat_in">
+      <ul class="dl_sel_cat">
+        <li *ngFor="let category of categoryList"
+        [ngClass]="proAndCat.category.id_product_category==category.id_product_category ? 'dark_clr' : '' " (click)="openProduct(category)">
+          {{category.name_category}}</li>
+      </ul>
+    </div>
+  </div>
+  <!--Slect  category page design end -->
+  <!--Slect  category listing design start-->
+
+  <div class="dl_cat_sub_list" *ngIf="showProduct">
+    <div class="cmn_padd" *ngIf="!showloader">
+      <p class="slect_cat_text">Select Product(s):</p>
+      <ul class="dl_sel_sub_cat">
+        <li *ngFor = "let product of productList">
+          <ion-item>
+            <ion-label>{{product.name_product}}</ion-label>
+            <ion-checkbox [(ngModel)]="product.isSelect" (ionChange)="productClicked(product)" [ngClass]="product.isSelect ? 'dark_clr' : '' "></ion-checkbox>
+          </ion-item>
+        </li>
+      </ul>
+      <div class="sub_cat_btn" (click)=assignCat();>
+        <button type="button" *ngIf="!productSelected" class="cat_btn">Assign Cat.</button>
+        <button type="button" *ngIf="productSelected" class="cat_btn">Assign Cat. & Products</button>
+      </div>
+    </div>
+  </div>
+  <!--Slect  category listing design start-->
+
+</ion-content>
+
+<div center middle *ngIf="showloader" class="ldr_mask">
+  <div class="mask_outer">
+    <div class="mask_inner">
+      <ion-spinner name="crescent" color="dark"></ion-spinner>
+    </div>
+  </div>
+</div>

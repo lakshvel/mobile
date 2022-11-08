@@ -1,0 +1,55 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.hybrid.upilot"
+    }
+  }
+}
