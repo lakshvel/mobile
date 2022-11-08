@@ -7,9 +7,9 @@ export class Globals {
   //readonly baseAPIUrl: string = "https://preprodcrm.upilot.com/crmapp/api-mobile-v3/V3/";
   
   //Dev Environment - Base URL (UnComment below line to point for Dev Environment)
-   readonly baseAPISubDomain: string = "https://";
-   readonly baseAPIUrl: string = "preprodcrm.upilot.com";
-   readonly baseAPIPath: string = "/crmapp/api-mobile-v3/V3/";
+  //  readonly baseAPISubDomain: string = "https://";
+  //  readonly baseAPIUrl: string = "preprodcrm.upilot.com";
+  //  readonly baseAPIPath: string = "/crmapp/api-mobile-v3/V3/";
    
  //readonly baseAPIUrl: string = "https://testandroid.devcrm.upilot.com/crmapp/api-mobile-v3/V3/";
  // readonly baseAPIUrl: string = "https://devcrm.upilot.com/c/f8545/branches/qa01/crmapp/api-mobile-v3/V3/";
@@ -18,9 +18,9 @@ export class Globals {
  // readonly baseAPIUrl: string = "https://testandroid.devcrm.upilot.com/c/f8545/branches/qa01/crmapp/api-mobile-v3/V3/";
  
   //Live Environment - Base URL (UnComment below line to point for Live Environment)
-  // readonly baseAPISubDomain: string = "https://";
-  // readonly baseAPIUrl: string = "upilot.com";
-  // readonly baseAPIPath: string = "/crmapp/api-mobile-v3/V3/";
+  readonly baseAPISubDomain: string = "https://";
+  readonly baseAPIUrl: string = "upilot.com";
+  readonly baseAPIPath: string = "/crmapp/api-mobile-v3/V3/";
   // grant Type
   readonly grantType: string = "password";
 
