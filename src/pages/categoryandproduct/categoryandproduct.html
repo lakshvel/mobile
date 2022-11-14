@@ -28,6 +28,7 @@
         <li *ngFor="let category of categoryList"
         [ngClass]="proAndCat.category.id_product_category==category.id_product_category ? 'dark_clr' : '' " (click)="openProduct(category)">
           {{category.name_category}}</li>
+        <li *ngIf="categoryList?.length == 0 ">No category found</li>  
       </ul>
     </div>
   </div>
@@ -35,7 +36,7 @@
   <!--Slect  category listing design start-->
 
   <div class="dl_cat_sub_list" *ngIf="showProduct">
-    <div class="cmn_padd" *ngIf="!showloader">
+    <div class="cmn_padd" *ngIf="!showloader && productList?.length != 0">
       <p class="slect_cat_text">Select Product(s):</p>
       <ul class="dl_sel_sub_cat">
         <li *ngFor = "let product of productList">
@@ -49,6 +50,11 @@
         <button type="button" *ngIf="!productSelected" class="cat_btn">Assign Cat.</button>
         <button type="button" *ngIf="productSelected" class="cat_btn">Assign Cat. & Products</button>
       </div>
+    </div>
+    <div class="dl_cat_in" style="display: block !important;" *ngIf="!showloader && productList?.length == 0 ">
+      <ul class="dl_sel_cat">
+        <li>No product found</li>
+      </ul>
     </div>
   </div>
   <!--Slect  category listing design start-->

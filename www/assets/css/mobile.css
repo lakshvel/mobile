@@ -4240,6 +4240,10 @@ ion-header.header.dl_cat_hd.thr_grd_ly {
   .dl_cat_sub_list {
     margin-top: 90px !important;
   }
+
+  .dl_cat_sub_list .dl_cat_in {
+    display: block !important;
+  }
   .contact_sr input.searchbar-input {
     padding: 12px 55px !important;
     width: 75% !important;
