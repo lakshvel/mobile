@@ -7541,12 +7541,7 @@ var AgendalistPage = /** @class */ (function () {
         this.pageTitle = pageFrom;
         this.listEndpoint = this.con.agendaEndpoint;
         this.dealPipeLine = this.service.getDealPipelineStage();
-        // <!-- (01-06-2020 @Laksh) Commented for notifications stopped  -->
-        //loginProcess.getNotificationsCount();
-        // //console.log(navigator, 'it is aganda list');
-        // //console.log("Contactdealtab", this.limitData.id_party);
         this.events.subscribe('task:taskPublish', function (time) {
-            // //console.log('taskPub ========> '+taskPub);
             _this.getAgendaListFormApi('direct', _this.con.agendaCachedFilter);
             _this.getTaskDetailFormApi(_this.agendaId, 'refresh');
         });
@@ -7562,13 +7557,11 @@ var AgendalistPage = /** @class */ (function () {
                     if (opt.isDefault == 1) {
                         _this.optionsValue = opt.filterViewId;
                         _this.con.agendaCachedFilter = _this.optionsValue;
-                        //break;
                     }
                 }
             }
             else {
                 _this.optionsValue = _this.con.agendaCachedFilter;
-                // this.con.agendaCachedFilter=this.optionsValue
             }
             _this.getAgendaListFormApi('direct', _this.con.agendaCachedFilter);
         }, function (err) {
@@ -7604,21 +7597,11 @@ var AgendalistPage = /** @class */ (function () {
             var thismonth = [];
             var futuretasks = [];
             var _MS_PER_DAY = 1000 * 60 * 60 * 24;
-            //var currentDate = new Date();
             var currentDate = __WEBPACK_IMPORTED_MODULE_19_moment__["utc"]();
             var currentDate1 = __WEBPACK_IMPORTED_MODULE_19_moment__(currentDate.format('YYYY-MM-DD'), 'YYYY-MM-DD');
-            // var currentTimeValue = Date.UTC(
-            //   currentDate.getFullYear(),
-            //   currentDate.getMonth(),
-            //   currentDate.getDate()
-            // );
-            //console.log("agenda result.data", (new Date()).getTimezoneOffset(), moment().utcOffset(), moment().zone(), moment().format('z'), moment().format('Z'), moment().format('ZZ'));
             __WEBPACK_IMPORTED_MODULE_19_moment__().utcOffset(__WEBPACK_IMPORTED_MODULE_19_moment__().format('Z'));
-            ////console.log(moment().utcOffset(), 'test ils');
             for (var _i = 0, _a = result.data; _i < _a.length; _i++) {
                 var value = _a[_i];
-                // var dueDate = new Date(value.task_due_date.replace(/-/g, "/")+' UTC');
-                // var endDate = new Date(value.task_end_date.replace(/-/g, "/")+' UTC');
                 var dueDateUTC = __WEBPACK_IMPORTED_MODULE_19_moment__["utc"](value.task_due_date).toDate();
                 var dueDate = __WEBPACK_IMPORTED_MODULE_19_moment__(dueDateUTC).local();
                 var dueDate11 = __WEBPACK_IMPORTED_MODULE_19_moment__(__WEBPACK_IMPORTED_MODULE_19_moment__(value.task_due_date).format('YYYY-MM-DD'), 'YYYY-MM-DD');
@@ -7626,33 +7609,10 @@ var AgendalistPage = /** @class */ (function () {
                 var endDate = __WEBPACK_IMPORTED_MODULE_19_moment__(endDateUTC).local();
                 var dueDate1 = new Date(value.task_due_date.replace(/-/g, '/') + ' ');
                 var endDate1 = new Date(value.task_end_date.replace(/-/g, '/') + ' ');
-                //console.log("dueDate", dueDate, dueDate1);
-                //console.log("endDate", endDate, endDate1);
-                // var dueTimeValue = Date.UTC(
-                //   dueDate.getFullYear(),
-                //   dueDate.getMonth(),
-                //   dueDate.getDate()
-                // );
-                var dayDifference1 = __WEBPACK_IMPORTED_MODULE_19_moment__["duration"](dueDate11.diff(currentDate1), 'days'); //endDate.diff(dueDate, 'days');
+                var dayDifference1 = __WEBPACK_IMPORTED_MODULE_19_moment__["duration"](dueDate11.diff(currentDate1), 'days');
                 var dayDifference = dayDifference1.days();
-                //Math.floor(
-                //   (currentTimeValue - dueTimeValue) / _MS_PER_DAY
-                // );
-                // //console.log(moment(dueDate).isAfter(moment().endOf('month')), moment(dueDate).isBetween(moment(), moment().endOf('month')), moment(dueDate).isBetween(moment().startOf('week'), moment().endOf('week')),   moment().startOf('week'), moment().endOf('week'),  'today laksh man')
-                //console.log("Task List", result.data, dayDifference1, dayDifference, dueDate11, currentDate1);
-                // if(moment(dueDate).isBetween(moment().startOf('week'), moment().endOf('week'))) {
-                //   thisweek.push(value);
-                // }
-                // if(moment(dueDate).isBetween(moment(), moment().endOf('month'))) {
-                //   thismonth.push(value);
-                // }
-                // if(moment(dueDate).isAfter(moment().endOf('month'))) {
-                //   futuretasks.push(value);
-                // }
                 var hours = dueDate.hours();
-                //console.log("hours", hours);
                 var minutes = dueDate.minutes();
-                //console.log("minutes", minutes);
                 var ampm = hours >= 12 ? 'PM' : 'AM';
                 hours = hours % 12;
                 hours = hours ? hours : 12; // the hour '0' should be '12'
@@ -7660,8 +7620,6 @@ var AgendalistPage = /** @class */ (function () {
                 var strTime = hours + ':' + min;
                 value.amOrpm = ampm;
                 value.strTime = strTime;
-                //console.log("value.amOrpm", value.amOrpm);
-                //console.log("value.strTime", value.strTime);
                 value.month = _this.con.monthArray[dueDate.months()];
                 value.date = dueDate.date();
                 value.hideList = false;
@@ -7673,21 +7631,6 @@ var AgendalistPage = /** @class */ (function () {
                     value.expanded = false;
                 }
                 _this.agendaListWithoutSearch = result.data;
-                //task is belong to yesterday
-                // if (dayDifference == 1) {
-                //   if (
-                //     dueDate <= currentDate &&
-                //     value.task_status != 2 &&
-                //     value.task_status != 3
-                //   ) {
-                //     this.isoverDueForYes = true;
-                //     value.isoverDueForYes = true;
-                //   } else {
-                //     value.isoverDueForYes = false;
-                //   }
-                //   overdue.push(value);
-                //   //task is belong to Today
-                // } else
                 if (dayDifference == 0) {
                     //task is running now or not
                     if (dueDate <= currentDate && currentDate <= endDate) {
@@ -7729,8 +7672,6 @@ var AgendalistPage = /** @class */ (function () {
                     }
                 }
             }
-            // this.agendaListWithoutSearch = this.agendaListWithoutFilter
-            // //console.log("agendaListWithoutFilter", this.agendaListWithoutFilter)
             _this.agendaListWithoutFilter = {
                 yesterday: yesterday,
                 today: today,
@@ -7781,36 +7722,15 @@ var AgendalistPage = /** @class */ (function () {
         this.authService
             .getData(agendaId, this.con.taskDetailEndpoint + agendaId)
             .then(function (result) {
-            ////console.log("Task Details", result.data);
             _this.getResponse = true;
             _this.taskData = result.data;
-            ////console.log(this.taskData);
             var _MS_PER_DAY = 1000 * 60 * 60 * 24;
-            //var currentDate = new Date();
-            var currentDate = __WEBPACK_IMPORTED_MODULE_19_moment__["utc"]();
-            // var currentTimeValue = Date.UTC(
-            //   currentDate.getFullYear(),
-            //   currentDate.getMonth(),
-            //   currentDate.getDate()
-            // );
-            // var dueDate = new Date(
-            //   // this.taskData.task_due_date.replace(/-/g, "/")+' UTC'
-            //   this.taskData.task_due_date.replace(/-/g, "/")+' '
-            // );
+            var currentDate = __WEBPACK_IMPORTED_MODULE_19_moment__(__WEBPACK_IMPORTED_MODULE_19_moment__["utc"]().format('YYYY-MM-DD'), 'YYYY-MM-DD');
             __WEBPACK_IMPORTED_MODULE_19_moment__().utcOffset(__WEBPACK_IMPORTED_MODULE_19_moment__().format('Z'));
             var dueDateUTC = __WEBPACK_IMPORTED_MODULE_19_moment__["utc"](_this.taskData.task_due_date).toDate();
-            var dueDate = __WEBPACK_IMPORTED_MODULE_19_moment__(dueDateUTC).local();
-            // var dueTimeValue = Date.UTC(
-            //   dueDate.getFullYear(),
-            //   dueDate.getMonth(),
-            //   dueDate.getDate()
-            // );
-            // var dayDifference = Math.floor(
-            //   (currentTimeValue - dueTimeValue) / _MS_PER_DAY
-            // );
+            var dueDate = __WEBPACK_IMPORTED_MODULE_19_moment__(__WEBPACK_IMPORTED_MODULE_19_moment__(dueDateUTC).format('YYYY-MM-DD'), 'YYYY-MM-DD');
             var dayDifference1 = __WEBPACK_IMPORTED_MODULE_19_moment__["duration"](currentDate.diff(dueDate)); //endDate.diff(dueDate, 'days');
             var dayDifference = dayDifference1.days();
-            //console.log(dayDifference, dueDate, currentDate, 'laksh and gunnet')
             _this.taskData.dayDifference = dayDifference;
             //get hour from duedate object
             var hours = dueDate.hours();
@@ -7860,11 +7780,9 @@ var AgendalistPage = /** @class */ (function () {
                         var listItem = _a[_i];
                         if (_this.agendaId == listItem.id_task) {
                             listItem.expanded = !listItem.expanded;
-                            //  listItem.hideList = true;
                             break;
                         }
                         else {
-                            //  listItem.hideList = true;
                             listItem.expanded = false;
                         }
                     }
@@ -8066,13 +7984,8 @@ var AgendalistPage = /** @class */ (function () {
             this.con.alertMessage(this.con.noInternateConnectionMsg);
             return;
         }
-        ////console.log("dealdata agenda", dealData);
-        // //console.log(contactData);
         if (dealData != null) {
-            // //console.log(dealData);
-            //this.service.setLimitData(dealData);
             this.detailDeals(dealData, 'history');
-            //this.navCtrl.push(DealtabsPage);
         }
         else {
             this.service.setLimitData(contactData);
@@ -8110,14 +8023,11 @@ var AgendalistPage = /** @class */ (function () {
     ///Get the contacts details from api
     AgendalistPage.prototype.getContactFromApi = function (contactId) {
         var _this = this;
-        //  this.showloader = true;
         this.authService
             .getData(contactId, 'contact/' + contactId + '/company')
             .then(function (result) {
-            //  this.showloader = false;
             _this.service.setContactDetail(result.data);
         }, function (err) {
-            //  this.showloader = false;
             _this.service.setContactDetail(_this.noDataForContact.data);
         });
     };

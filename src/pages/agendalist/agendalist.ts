@@ -89,13 +89,8 @@ export class AgendalistPage {
     this.pageTitle = pageFrom
     this.listEndpoint = this.con.agendaEndpoint
     this.dealPipeLine = this.service.getDealPipelineStage()
-    // <!-- (01-06-2020 @Laksh) Commented for notifications stopped  -->
-    //loginProcess.getNotificationsCount();
-    // //console.log(navigator, 'it is aganda list');
-    // //console.log("Contactdealtab", this.limitData.id_party);
-
+    
     this.events.subscribe('task:taskPublish', (time) => {
-      // //console.log('taskPub ========> '+taskPub);
       this.getAgendaListFormApi('direct', this.con.agendaCachedFilter)
       this.getTaskDetailFormApi(this.agendaId, 'refresh')
     })
@@ -110,12 +105,10 @@ export class AgendalistPage {
             if (opt.isDefault == 1) {
               this.optionsValue = opt.filterViewId
               this.con.agendaCachedFilter = this.optionsValue
-              //break;
             }
           }
         } else {
           this.optionsValue = this.con.agendaCachedFilter
-          // this.con.agendaCachedFilter=this.optionsValue
         }
         this.getAgendaListFormApi('direct', this.con.agendaCachedFilter)
       },
@@ -165,28 +158,15 @@ export class AgendalistPage {
           var thismonth = []
           var futuretasks = []
           var _MS_PER_DAY = 1000 * 60 * 60 * 24
-          //var currentDate = new Date();
           var currentDate = moment.utc()
           var currentDate1 = moment(
             currentDate.format('YYYY-MM-DD'),
             'YYYY-MM-DD'
           )
-          // var currentTimeValue = Date.UTC(
-          //   currentDate.getFullYear(),
-          //   currentDate.getMonth(),
-          //   currentDate.getDate()
-          // );
-
-          //console.log("agenda result.data", (new Date()).getTimezoneOffset(), moment().utcOffset(), moment().zone(), moment().format('z'), moment().format('Z'), moment().format('ZZ'));
 
           moment().utcOffset(moment().format('Z'))
 
-          ////console.log(moment().utcOffset(), 'test ils');
-
           for (var value of result.data) {
-            // var dueDate = new Date(value.task_due_date.replace(/-/g, "/")+' UTC');
-            // var endDate = new Date(value.task_end_date.replace(/-/g, "/")+' UTC');
-
             var dueDateUTC = moment.utc(value.task_due_date).toDate()
             var dueDate = moment(dueDateUTC).local()
             var dueDate11 = moment(
@@ -204,44 +184,14 @@ export class AgendalistPage {
               value.task_end_date.replace(/-/g, '/') + ' '
             )
 
-            //console.log("dueDate", dueDate, dueDate1);
-            //console.log("endDate", endDate, endDate1);
-            // var dueTimeValue = Date.UTC(
-            //   dueDate.getFullYear(),
-            //   dueDate.getMonth(),
-            //   dueDate.getDate()
-            // );
             var dayDifference1 = moment.duration(
               dueDate11.diff(currentDate1),
               'days'
-            ) //endDate.diff(dueDate, 'days');
+            )
             var dayDifference = dayDifference1.days()
 
-            //Math.floor(
-            //   (currentTimeValue - dueTimeValue) / _MS_PER_DAY
-            // );
-
-            // //console.log(moment(dueDate).isAfter(moment().endOf('month')), moment(dueDate).isBetween(moment(), moment().endOf('month')), moment(dueDate).isBetween(moment().startOf('week'), moment().endOf('week')),   moment().startOf('week'), moment().endOf('week'),  'today laksh man')
-
-            //console.log("Task List", result.data, dayDifference1, dayDifference, dueDate11, currentDate1);
-
-            // if(moment(dueDate).isBetween(moment().startOf('week'), moment().endOf('week'))) {
-            //   thisweek.push(value);
-            // }
-
-            // if(moment(dueDate).isBetween(moment(), moment().endOf('month'))) {
-            //   thismonth.push(value);
-            // }
-
-            // if(moment(dueDate).isAfter(moment().endOf('month'))) {
-            //   futuretasks.push(value);
-            // }
-
             var hours = dueDate.hours()
-            //console.log("hours", hours);
-
             var minutes = dueDate.minutes()
-            //console.log("minutes", minutes);
             var ampm = hours >= 12 ? 'PM' : 'AM'
             hours = hours % 12
             hours = hours ? hours : 12 // the hour '0' should be '12'
@@ -250,8 +200,6 @@ export class AgendalistPage {
 
             value.amOrpm = ampm
             value.strTime = strTime
-            //console.log("value.amOrpm", value.amOrpm);
-            //console.log("value.strTime", value.strTime);
             value.month = this.con.monthArray[dueDate.months()]
             value.date = dueDate.date()
             value.hideList = false
@@ -263,21 +211,6 @@ export class AgendalistPage {
             }
             this.agendaListWithoutSearch = result.data
 
-            //task is belong to yesterday
-            // if (dayDifference == 1) {
-            //   if (
-            //     dueDate <= currentDate &&
-            //     value.task_status != 2 &&
-            //     value.task_status != 3
-            //   ) {
-            //     this.isoverDueForYes = true;
-            //     value.isoverDueForYes = true;
-            //   } else {
-            //     value.isoverDueForYes = false;
-            //   }
-            //   overdue.push(value);
-            //   //task is belong to Today
-            // } else
             if (dayDifference == 0) {
               //task is running now or not
               if (dueDate <= currentDate && currentDate <= endDate) {
@@ -320,8 +253,6 @@ export class AgendalistPage {
             }
           }
 
-          // this.agendaListWithoutSearch = this.agendaListWithoutFilter
-          // //console.log("agendaListWithoutFilter", this.agendaListWithoutFilter)
           this.agendaListWithoutFilter = {
             yesterday: yesterday,
             today: today,
@@ -371,41 +302,17 @@ export class AgendalistPage {
       .getData(agendaId, this.con.taskDetailEndpoint + agendaId)
       .then(
         (result) => {
-          ////console.log("Task Details", result.data);
           this.getResponse = true
           this.taskData = result.data
-          ////console.log(this.taskData);
           var _MS_PER_DAY = 1000 * 60 * 60 * 24
-          //var currentDate = new Date();
-          var currentDate = moment.utc()
-          // var currentTimeValue = Date.UTC(
-          //   currentDate.getFullYear(),
-          //   currentDate.getMonth(),
-          //   currentDate.getDate()
-          // );
-
-          // var dueDate = new Date(
-          //   // this.taskData.task_due_date.replace(/-/g, "/")+' UTC'
-          //   this.taskData.task_due_date.replace(/-/g, "/")+' '
-          // );
+          var currentDate = moment(moment.utc().format('YYYY-MM-DD'),'YYYY-MM-DD');          
           moment().utcOffset(moment().format('Z'))
 
           var dueDateUTC = moment.utc(this.taskData.task_due_date).toDate()
-          var dueDate = moment(dueDateUTC).local()
-
-          // var dueTimeValue = Date.UTC(
-          //   dueDate.getFullYear(),
-          //   dueDate.getMonth(),
-          //   dueDate.getDate()
-          // );
-
-          // var dayDifference = Math.floor(
-          //   (currentTimeValue - dueTimeValue) / _MS_PER_DAY
-          // );
+          var dueDate = moment(moment(dueDateUTC).format('YYYY-MM-DD'), 'YYYY-MM-DD')
 
           var dayDifference1 = moment.duration(currentDate.diff(dueDate)) //endDate.diff(dueDate, 'days');
           var dayDifference = dayDifference1.days()
-          //console.log(dayDifference, dueDate, currentDate, 'laksh and gunnet')
           this.taskData.dayDifference = dayDifference
           //get hour from duedate object
           var hours = dueDate.hours()
@@ -462,10 +369,8 @@ export class AgendalistPage {
               for (let listItem of this.taskSearchData) {
                 if (this.agendaId == listItem.id_task) {
                   listItem.expanded = !listItem.expanded
-                  //  listItem.hideList = true;
                   break
                 } else {
-                  //  listItem.hideList = true;
                   listItem.expanded = false
                 }
               }
@@ -693,13 +598,8 @@ export class AgendalistPage {
       this.con.alertMessage(this.con.noInternateConnectionMsg)
       return
     }
-    ////console.log("dealdata agenda", dealData);
-    // //console.log(contactData);
     if (dealData != null) {
-      // //console.log(dealData);
-      //this.service.setLimitData(dealData);
       this.detailDeals(dealData, 'history')
-      //this.navCtrl.push(DealtabsPage);
     } else {
       this.service.setLimitData(contactData)
       this.navCtrl.push(ContacttabsPage)
@@ -746,16 +646,13 @@ export class AgendalistPage {
 
   ///Get the contacts details from api
   getContactFromApi(contactId) {
-    //  this.showloader = true;
     this.authService
       .getData(contactId, 'contact/' + contactId + '/company')
       .then(
         (result) => {
-          //  this.showloader = false;
           this.service.setContactDetail(result.data)
         },
         (err) => {
-          //  this.showloader = false;
           this.service.setContactDetail(this.noDataForContact.data)
         }
       )
